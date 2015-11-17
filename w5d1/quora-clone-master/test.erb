@@ -1,0 +1,24 @@
+<div>
+				<% if question.question_detail.length > 5 %>
+				<%= question.question_detail.truncate(5, omission: '..Read more') %>
+			
+				<script>
+					$('.read-more-<%=question.id%>').on('click', function(e){e.preventDefault()
+						$(this).parent().html('<%= Helper.escape_js(question.question_detail) %>')
+					})
+					</script>
+					<% else %>
+					<p><%=question.question_detail %></p>
+					<% end %>
+				</div>
+
+
+
+	class Helper
+  include ActionView::Helpers::JavaScriptHelper
+
+  def self.escape_js( text )
+    @instance ||= self.new
+    return @instance.escape_javascript( text )
+  end
+end

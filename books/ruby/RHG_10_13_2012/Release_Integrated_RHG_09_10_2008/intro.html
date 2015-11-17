@@ -1,0 +1,355 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">  <!doctype html public "-//w3c//dtd html 4.01 transitional//en">
+<html lang="ja-JP">
+<head><base href="">
+
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Language" content="ja-JP">
+  <link rel="stylesheet" type="text/css" href="rhg.css">
+  <link rev="made" href="mailto:aamine@loveruby.net">
+<title>Preface</title></head>
+<body>
+<h1>Introduction to the Ruby Language<h1>
+<p>
+Ruby is an "Open Source" program. It is supported by 
+a large community for developers and users.
+</p>
+Distribution of Ruby
+<pre class="greenlist">
+  1. The Ruby Source Code can be distributed
+  2. The Ruby Source Code can be modified
+  3. The Altered Source Code can be distributed
+</pre>
+<P>
+In each case no special permission or fee is required.
+</p>
+<h2>Ruby is Conservative</h2>
+Ruby features are in wide use in other languages. Special
+or experimental features are not included.&nbsp&nbsp  Compiler Syntax
+such as parenthesis and semicolons are not necessary in most
+cases, but can be added for clarity;
+<h2>Ruby is an Object Orientated Language</h2>
+The notion of an object can not be separated from Ruby. 
+The nature of this Object Orientation in as far as Ruby
+will be explained.&nbsp&nbsp 
+<h2>It is a Script Language</h2>
+When Introducing Ruby as a "Object Orientation Script Language",&nbsp 
+it will not please everyone.&nbsp&nbsp  But Ruby is a true <i>programming
+language</i>, with strong theoretical roots.&nbsp&nbsp  It can be used for
+almost any programming job, including GUI programs and even
+web programming.
+<h2>Ruby is the Interpreter</h2>
+Ruby <i>is an Interpreter</i>, that is a fact! &nbsp&nbsp The fact that
+it is an interpreter,&nbsp  allows it to solve problems quickly.
+<h2>Ruby Transferability</h2>
+Ruby is a UNIX Centered Language.&nbsp  But the fact the it uses
+assembly coding rarely, makes transferring the language to
+other systems fairly easy.&nbsp&nbspThe following is a partial list of systems and OS's that currently host the Ruby Interpreter. 
+<ul>
+<li>Linux</li>
+<li>Win32 (Windows 95 and 98, Me and NT, 2000, XP)</li>
+<li>Cygwin</li>
+<li>Djgpp</li>
+<li>FreeBSD</li>
+<li>NetBSD</li>
+<li>OpenBSD</li>
+<li>BSD/OS</li>
+<li>Mac OS X</li>
+<li>Solaris</li>
+<li>Tru64 UNIX</li>
+<li>HP-UX</li>
+<li>AIX</li>
+<li>VMS</li>
+<li>UX/4800</li>
+<li>BeOS</li>
+<li>OS/2 (emx)</li>
+<li>Psion</li>
+</ul>
+<h2>Automatic Memory Management</h2>
+Ruby implements automatic Garbage Collection.&nbsp&nbsp  The programmer
+does not have to worry about Malloc/Free sequences as in 'C'
+and 'C++'.&nbsp&nbsp  When an object is no longer being used it is 
+automatically destroyed and it's memory returned to the pool.
+<h2>Variables Have No 'Type'</h2>
+Variables have to fixed type.&nbsp&nbsp  It is one of the most powerful
+weapons of the Ruby Language.&nbsp&nbsp This means that an array for
+example can contain several different data types.
+<h2>Ruby is written in ANSI 'C'</h2>
+Nowadays, &nbsp a program written in ANSI 'C' can be ported to almost
+an infinite number of systems and  OS Environments. &nbsp&nbsp The fact that
+Ruby is written in 'C' is a major feature.&nbsp&nbsp  The original Ruby code
+was written in K&R Style 'C' and it's influence is still visible,&nbsp 
+though it is now ANSI 'C' compatible.&nbsp&nbsp  It is compiled with  gcc
+in the Linux Environment.
+<h2>Extended Library</h2>
+The Ruby Language can be augmented with extended functions written
+in 'C'.&nbsp&nbsp  The functions provided mirror the language grammar, &nbsp thus
+features written in 'C' closely resemble Ruby Code.
+
+<pre class="longlist">
+# method call
+Obj.Method (arg) # Ruby
+Rb_funcall (obj, rb_intern ("method") and 1, arg); # C
+
+# block call
+Yield arg # Ruby
+Rb_yield (arg); # C
+
+# exceptional forwarding
+Raise ArgumentError and 'wrong number of arguments' # Ruby
+Rb_raise (rb_eArgError, "wrong number of arguments"); # C
+
+Formation of # object
+Arr = Array.New # Ruby
+VALUE arr = rb_ary_new (); # C
+</pre>
+<h2>Thread</h2>
+Ruby implements threads within Ruby Itself.&nbsp &nbsp   These are totally in-process, implemented within the Ruby interpreter.&nbsp&nbsp  That makes the Ruby threads completely portable
+<h2>The technology which reads the source code</h2>
+In order to read the Ruby Source Code,&nbsp  certain information and techniques are discussed that will make the process easier.
+<h2>Learning Ruby Internals</h2>
+<h3>Techniques of analysis</h3>
+To analyze the source code, there are roughly two techniques:
+<pre class="greenlist">
+  1. Static Techniques
+  2. Dynamic Techniques
+</pre>
+<h3>Dynamic analysis</h3>
+<h4>The object program is used</h4>
+The Object program is run with specific usage in mind and the
+results are viewed.&nbsp&nbsp  Either with a debugger,&nbsp  tracer,&nbsp  and/or debug
+code inserted into the program being Analyzed.
+<h4>The movement is chased with the debugger</h4>
+The user can use a debugger to watch execution flow.&nbsp&nbsp  What data
+is loaded into data structures. &nbsp&nbsp There are tools, like <i>dia</i> to help
+draw pictures of data structures,&nbsp  which can make visualization
+of the data structures easier.&nbsp&nbsp  Also see the <i>graphviz</i> program.
+<h4>Tracer</h4>
+Tracers can also capture information about program flow, such as Ctrace...
+{http://www.Vicente- .Org/ctrace} and to trace system calls Strace...
+ {Http://www.Wi.Leidenuniv.Nl/ - Wichert/strace/} and Ktrace tool.&nbsp&nbsp  Also,&nbsp  the tool IDBG (www.hawthorne-press.com),&nbsp which can be a used with Ctrace.
+<h4>Printf Tracing</h4>
+Conditional Tracing statements embedded in the code being examined. Again, the IDBG program comes with a Ruby Tracing Support and the ability automatically insert and remove print statements and call support routines.
+<h4>Rewriting, it moves</h4>
+Also, if a function is difficult to understand, try changing it's
+parameters or code slightly and look at the result.&nbsp&nbsp  The change can
+often tell what it is doing.
+<h4>Cflow, Cflow2dot, and Dot</h4>
+The program 'cflow' or the programs 'prcc' and 'prcg' it uses can
+be used with 'flow2dot' and 'dot' to produce process flow diagrams.
+<h3>Static analysis</h3>
+<h4>Importance of name</h4>
+When doing static analysis of a program, the names of functions,&nbsp  variables,
+and constants can often be good clues to their usage.&nbsp&nbsp  This is especially
+true if the original programmer followed good naming conventions and practices. 
+<h4>The document is read</h4>
+There are also times when the document which explains internal constitution 
+is available or the Internal Comments are extensive enough to explain the
+code.
+<h4>Investigation of abbreviations</h4>
+If there are abbreviations in the code (Say GC),&nbsp  determine if they
+are meaningful: Is it 'Graphic Context' or 'Garbage Collection'?
+<h4>Call Relationships of a function</h4>
+Using a program suite like 'cflow/cflow2dot/dot' to generate a call
+graph of a program or section of a program is very helpful. &nbsp&nbsp It is easier
+to grasp the process relationships visually.
+<h4>Read the function code</h4>
+Read the function carefully.&nbsp&nbsp  Try to describe in one or two words it's
+purpose. &nbsp&nbsp If it is hard to read because of coding style,&nbsp  the use 
+<i>indent</i> to convert the 'C' Style to a form you are comfortable with.
+<h4>Try rewriting the function to your taste</h4>
+Some times rewriting a function and proving it produces the same result can lead to a much better understanding of the function.&nbsp&nbsp  However, leave the original
+code intact.&nbsp&nbsp  Because, &nbsp if half way through you find things are not the same,
+having the original allows you to find out where you may have gone wrong.
+<h3>Reading program history and change logs</h3>
+A lot of information about a program is usually found in change logs,&nbsp  whether
+attached to the program or not.&nbsp&nbsp  Also CVS Logs and/or annotations of various sorts.&nbsp&nbsp   Mailing list of changes in the development community,&nbsp  for example ruby-core
+history of changes has a lot of information.
+<h3>Tool for static analysis</h3>
+Using 'etags' to generate a 'TAGS' file, &nbsp a lot of information is available.&nbsp&nbsp  For example, a list of all functions called by a particular file. &nbsp&nbsp Using 'ctags' a cross reference can be generated.
+<h2>Building Ruby</h2>
+Building on a unix platform is divided into three parts
+<pre class="greenlist">
+  1. Configure
+  2. Make
+  3. Make Install
+</pre>
+<h3>Configure</h3>
+Configure is a script that try's to determine if everything needed by the build process is present.&nbsp&nbsp  The method of investigation is unexpected and simple.
+<BR>
+The file 'Makefile.in' contains parameterized code that is converted
+into the final makefile based on results of configure.
+<pre  class="longlist">
+Makefile.in      CFLAGS = @CFLAGS@
+
+Makefile         CFLAGS = -g -o2
+</pre>
+After the configure script is executed,&nbsp  the file 'config.h' is created.&nbsp&nbsp 
+This file contains some of the results of configure execution.
+<pre  class="longlist">
+         :
+         :
+#define HAVE_SYS_STAT_H 1
+#define HAVE_STDLIB_H 1
+#define HAVE_STRING_H 1
+#define HAVE_MEMORY_H 1
+#define HAVE_STRINGS_H 1
+#define HAVE_INTTYPES_H 1
+#define HAVE_STDINT_H 1
+#define HAVE_UNISTD_H 1
+#define _FILE_OFFSET_BITS 64
+#define HAVE_LONG_LONG 1
+#define HAVE_OFF_T 1
+#define SIZEOF_INT 4
+#define SIZEOF_SHORT 2
+         :
+</pre>
+These values can be used by the programmer to determine if certain items are available.&nbsp&nbsp  For example, this is from 'ruby.h'
+<pre  class="longlist">
+  24 #ifdef HAVE_STDLIB_H
+  25 # include < Stdlib.H>
+  26 #endif
+</pre>
+<h3>Autoconf</h3>
+The use of Autoconf, Automake, and friends is described in full in GNU documents available at 'gnu.org'
+<p class="image">
+<img src="images/ch_abstract_build.jpg" alt="(Build)"><br><BR>
+Figure 1: <code>Makefile Construction
+</p>
+<h3>Make</h3>
+This second stage, Make, is processes as follows:
+<pre class="greenlist">
+  1. The Ruby Source Code is compiled
+  2. The static library is complied
+  3. Static Link with Miniruby is done
+  4. If --enabled-shared, joint ownership of libruby.so is made
+  5. Using Miniruby, the extended libary it compiles
+  6. Lastly, the Real Ruby is linked
+</pre
+<h3>CVS</h3>
+CVS is a source management system that allows not only to current system
+to be compiled,&nbsp  but any previous version of the program that was entered
+into the CVS System.
+<h2>Ruby Construction</h2>
+<h3>Physical Structure</h3>
+As Ruby has gotten larger,&nbsp  the program sources have been divided into a number of sub-directories:
+<pre class="greenlist">
+  1. Documents
+  2. Ruby Source Code
+  3. Ruby Tools for Building
+  4. Standard Extended Library
+  5. Standard Ruby Library
+  6. Translations and Additions
+</pre>
+<h3>Classification of source code</h3>
+The ruby source code itself is divide into several parts:
+<h4>Core of Ruby language</h4>
+<pre  class="greenlist">
+Class.C       Class-related API
+Error.C       Exceptional-related API
+Eval.C        Evaluator
+Gc.C          Garbage collector
+Lex.C         Reserved word table
+Object.C      Object system
+Parse.Y       Parser
+Variable.C    Constant, global variable and class variable
+Ruby.H        RubyPrincipal macro and prototype
+Intern.H      RubyC API prototype.InternIt is thought that it is
+              the abbreviation of internal, but it does not care 
+              the fact that the function which has been recorded 
+              here is used with the extended library separately.
+Rubysig.H     The header file which supplies the macro related to 
+              the signals
+Node.H        Definition related to syntactic tree node
+Env.H         Definition of the structure which expresses the 
+              context of the evaluator
+</pre>
+<h4>Utility</h4>
+<pre  class="greenlist">
+Dln.C         Dynamic loader
+Regex.C       Regular expression engine
+St.C          Hash table
+Util.C        Library of cardinal number conversion and sort etc
+</pre>
+<h4>Ruby Initialization and Loading Routines</h4>
+<pre  class="greenlist">
+Dmyext.C     Dummy of extended library initialization routine
+             (DumMY EXTention)
+Inits.C      Entry point of initialization routine of core and 
+             library
+Main.C       Entry point of command 
+             (Libruby it is unnecessary)
+Ruby.C       RubyPrincipal part of command 
+             (Libruby it is needed)
+Version.C    RubyVersion
+</pre>
+
+<h4>Class library</h4>
+<pre  class="greenlist">
+Array.C      Class Array
+Bignum.C     Class Bignum
+Compar.C     Module Comparable
+Dir.C        Class Dir
+Enum.C       Module Enumerable
+File.C       Class File
+Hash.C       Class Hash (See 'st.c' also)
+Io.C         Class IO
+Marshal.C    Module Marshal
+Math.C       Module Math
+Numeric.C    Class Numeric (Integer, Fixnum, and Float)
+Pack.C       Array#pack, snf String#unpack
+Prec.C       Module Precision
+Process.C    Module Process
+Random.C     Kernel#srand(), and Rand()
+Range.C      Class Range
+Re.C         Class Regexp (See regex.c)
+Signal.C     Module Signal
+Sprintf.C    Ruby (Exclusive use of Sprint() )
+String.C     Class String
+Struct.C     Class Struct
+Time.C       Class Time
+</pre>
+<h4>Platform dependence file</h4>
+<pre  class="greenlist">
+Bcc32/       Borland C++ (Win32)
+Beos/        BeOS
+Cygwin/      Cygwin (the UNIX emulation layer with Win32)
+Djgpp/       Djgpp (The free enviroment for software 
+             development for DOS)
+Vms/         VMS (OS which DEC has done release at one time)
+Win32/       Visual C++ (Win32)
+X68/         Sharp X680x0 system (as for OS Human68k)
+</pre>
+<h3>Logical structure</h3>
+Inside the Ruby Core group of files, it is divided into three parts.&nbsp&nbsp 
+The First creates the object world of Ruby (The Object Space).&nbsp&nbsp  The
+Second is the 'Parser' which creates the internal representation of the ruby program.&nbsp&nbsp  Lastly, the evaluator that drives the program.
+<h4>Object Space</h4>
+The object space is the memory that holds the objects created and operated on by the evaluator.&nbsp&nbsp  This is explained in chapters 2 through 7.&nbsp&nbsp The following node chart represents the Nodes in Object Space for a simple ruby program consisting of only a minimal class called <i><b>TestCase</b></i>.&nbsp&nbsp The unshaded nodes are created by Ruby before reading the user's program.
+<p class="image">
+<img src="images/Simple_Test_Case.jpg" alt="(Node Chart)"><br><BR>
+Figure 2: Object Space Node Chart&nbsp&nbsp (Created with the Graphviz DOT program)
+</p>
+<h4>Parser</h4>
+The Ruby Parser converts a Ruby program into an internal representation called a "Syntactic Tree".&nbsp&nbsp  This representation is processed by the evaluator when executing the program.&nbsp&nbsp  The following ruby statements are converted into the "Syntactic Tree" as shown below.
+<p class="image">
+<img src="images/ch_abstract_syntree.jpg" alt="(Syntree)"><br>
+<br>
+Figure 3: Syntactic Tree for example statements
+</p>
+The Parser and Syntactic Tree's are discussed in chapters 8 through 12.
+<h4>Evaluator</h4>
+The Evaluator is where a Ruby Program actually is 'executed'. This is in the third section of this book (Appraisal). The is covered in chapters 13 through 17.
+<br>
+<br>
+<hr>
+<p>
+The original work is Copyright &copy; 2002 - 2004 Minero AOKI.<br>
+Translated by Vincent ISAMBART<br>
+Translations and Additions by C.E. Thornton<br>
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/2.5/"><img alt="Creative Commons License" border="0" src="images/somerights20.jpg"/></a><br/>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/2.5/">Creative Commons Attribution-NonCommercial-ShareAlike2.5 License</a>.
+</p>
+
+</body>
+</html>
+
+

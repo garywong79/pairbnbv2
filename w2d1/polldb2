@@ -1,0 +1,72 @@
+/*The Texas vote is close! Add 2 new voters, and fabricate a vote for each of the 2 incumbent senators of Texas. Make up their names and info.*/
+SELECT id, name FROM congress_members
+WHERE location='TX' AND substr(name,1,4)='Sen.';
+/*145, 499*/
+INSERT INTO voters (first_name, last_name, gender, party, created_at, updated_at)
+VALUES ("You Jing", "Wong", "male", "rep", DATETIME('now'), DATETIME('now')), ("Li Hua", "Wong", "male", "rep", DATETIME('now'), DATETIME('now'));
+
+SELECT id FROM voters
+ORDER BY id DESC
+LIMIT 2;
+/*5002, 5001*/
+
+INSERT INTO votes (voter_id, politician_id, created_at, updated_at)
+VALUES (5001, 145, DATETIME('Now'), DATETIME('Now')), (5002, 145, DATETIME('Now'), DATETIME('Now')), (5001, 499, DATETIME('Now'), DATETIME('Now')), (5002, 499, DATETIME('Now'), DATETIME('Now'));
+
+/*Insert another politician, "Donald Trump". Add suitable attributes and delete one of the senators from New Jersey. Add Trump there instead. Give Trump all the votes from the deleted politician.*/
+SELECT id FROM congress_members
+WHERE location='NJ' AND substr(name,1,4)='Sen.';
+-- 102, 463
+
+UPDATE congress_members
+SET name='Donald Trump', party='Republican', location='NJ', updated_at=DATETIME('Now')
+WHERE id=102;
+
+-- Find all the voters that are not registered as republican or democrat (AND only voted once), and delete them.
+
+DELETE from voters
+WHERE voters.id in
+  (SELECT voter_id
+    FROM votes
+    GROUP BY voter_id
+    HAVING COUNT(voter_id)=1) AND
+voters.party!='democrat' AND voters.party!='republican'
+
+-- Delete all the voters (and their votes) that are homeowners, employed, have no children, and have been with their party for less than 3 years AND have voted for politicians that speak at a grade level higher than 12.
+
+CREATE TRIGGER delete_voters_after_votes
+AFTER DELETE ON votes
+FOR EACH ROW
+BEGIN
+  DELETE FROM voters WHERE voters.id=OLD.voter_id;
+END;
+
+DELETE FROM votes
+WHERE votes.voter_id in
+  (SELECT voter_id
+    FROM votes
+    INNER JOIN voters ON voters.id=votes.voter_id
+    INNER JOIN congress_members on congress_members.id=votes.politician_id
+    WHERE homeowner=1 AND employed=1 AND children_count=0 AND party_duration<3 AND grade_current>12)
+
+-- Update the votes for all the men over 80 that have no children. Change their vote to be for the secret politician with ID 346.
+
+UPDATE votes
+SET politician_id=346
+WHERE voter_id in
+  (SELECT voter_id, age, children_count, politician_id
+    FROM votes
+    INNER JOIN voters ON voters.id=votes.voter_id
+    WHERE children_count=0 AND age>80)
+
+-- Update the votes for top smarty pants politician (based on their speaking level - grade_1996). Shift the votes instead to the congress person that speaks at the lowest grade level.
+
+UPDATE votes
+SET politician_id=
+  (SELECT id FROM congress_members
+    ORDER BY grade_1996 ASC
+    LIMIT 1)
+WHERE politician_id in
+  (SELECT id FROM congress_members
+    ORDER BY grade_1996 DESC
+    LIMIT 1);

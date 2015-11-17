@@ -1,0 +1,17 @@
+
+<h2>Please edit your question</h2>
+
+<form method="post" action="/questions/<%=@question.id %>/update">
+	<input name="_method" type="hidden" value="put" />
+
+	<textarea class="form-control" rows="5"  name="question[question_detail]"><%=@question.question_detail %></textarea>
+
+	<button type="submit" class="btn btn-default">change</button>
+
+</form>
+
+<% if @question &&  @question.errors.full_messages.each do |error|%>
+<%= error %>
+	<% end %>
+<% end %>
+

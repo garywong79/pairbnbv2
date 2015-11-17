@@ -1,0 +1,3 @@
+== README
+
+This repository has been created for NextAcademy students. Clone me and complete the frontend challenges in Week 6.

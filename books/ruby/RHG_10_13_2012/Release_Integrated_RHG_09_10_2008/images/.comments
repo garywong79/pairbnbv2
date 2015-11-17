@@ -1,0 +1,481 @@
+#
+# Bashrc/Bash_profile Mod
+#
+#
+# CD BURN Helpers
+#
+alias mvcd='cpcd '         # cp cd images to correct numbered image files!
+#
+# Current Helpers
+#
+#
+#
+#
+alias pold='cd $OLDPWD'                   #last/previous directory
+#
+alias plow='/home/thornton/Bin/pri_low'   #low priority
+alias n='nice -n 19 '                     #low priority
+#
+alias dd='ddcomp'                         #Compare current area and $1 with current 1.8.5
+alias tkdd='tkddcomp'                     #Compare current area and $1 with current 1.8.5
+# 
+alias rloc='locrest '                     #Restricted Locate Command
+alias loc='locate'                        #Full Locate Command
+#
+#
+#
+#
+#
+#
+# Debuggers
+#
+alias dbg='/home/thornton/Bin/dddgo '   #gbd frontend (or IDE) debug
+alias ddd='/home/thornton/Bin/dddgo '   #gbd frontend (or IDE) debug
+#
+#Ruby Core Helpers
+#
+#
+# Remote Load Ruby Hackers Guides
+#
+#
+# GO TO  Current  Project and Supporting Alias!
+#
+#
+# Short Run Ruby Logicals
+#
+#
+#
+#
+# Short Run Ruby Aliases
+#
+#
+#
+alias gg='cd graphs'        # go to mod_185 test areas
+#
+#
+#
+#
+#
+#
+# Previous GO Versions  (Previous History:  ph<n> and labeled versions ph<xxx>)
+#
+#
+#
+#File Utilities
+#
+#
+# Old Friends (Defines)
+#
+#EDITOR=xemacsgo
+#export EDITOR
+#
+# 'expand coverts tabs to spaces ( expand <file> >result (standard output)
+#
+#
+# RAILS Stuff
+#
+#
+#Major Software Transfers
+#
+#
+#
+#Document Transfer Areas
+#
+#
+#
+#Download Transfer Areas
+#
+#
+#
+#
+# Work Display File Loading
+#
+# DSL Stuff
+#
+#
+#
+# Xcdroast
+#
+#
+# UML Modeler 'umbrello'
+#
+#
+# Old Friends (Alias's)
+#
+#
+alias bcvs='~/Bin/bldcvs '         # bldcvs (Project Name}
+#
+# Snaviagtor Helpers
+#
+#
+#
+alias g='grep_ch'        # Basic Search of *.c/y/h
+#
+#
+#
+# idbg Stuff
+#
+#    
+#
+#
+#
+# Tedit Stuff
+#
+#
+#
+# Remote Actions
+#
+#
+#
+# Remote Searches
+#
+alias lag='/home/thornton/Bin/la_grep'                     # Grep both Aliases and Logicals
+#
+alias bkg='bkgrep '                                        # Grep Bookmarks File
+alias bgrep='bbgrep '                                      # Grep Bin Files
+#
+alias bbash='grep -li /bin/bash /home/thornton/Bin/*'      # Find Bash Scripts in $BIN
+alias bruby='grep -li /usr/bin/ruby /home/thornton/Bin/*'  # Find Ruby Scripts in $BIN
+#
+alias lbash='grep -li /bin/bash ./*'      	        # Find Bash Scripts in Current Area
+alias lruby='grep -li /usr/bin/ruby ./*'  	        # Find Ruby Scripts in Current Area
+#
+# Stacked 'grep' commands
+#
+alias g1='grep_1 '  #grep -i $1 *
+alias g2='grep_2 '  #grep -i $1 * | grep -i $2 
+alias g3='grep_3 '  #grep -i $1 * | grep -i $2  | grep -i $3 
+alias g4='grep_4 '  #grep -i $1 * | grep -i $2  | grep -i $3 | grep -i $4
+#
+# Stacked 'grep' commands with secondary inversion stacks
+#
+alias g2='grep_2v '  #grep -i $1 * | grep -iv $2 
+alias g3='grep_3v '  #grep -i $1 * | grep -iv $2  | grep -iv $3 
+alias g4='grep_4v '  #grep -i $1 * | grep -iv $2  | grep -iv $3 | grepv -i $4
+#
+#
+#
+# Ruby Version/Hello Commands
+#
+#
+alias wg='/usr/bin/wget -r -nd -np'   #My type wget (No Directory Creation)
+alias w='/usr/bin/wget -r -x  -np'  #Standard wget (Create Directories)
+#
+#
+alias ca='cal'               # current month calendar
+alias c3='cal -3'	     # prev/current/next month calendars
+#
+#
+# CD ROM R/W Drive
+#
+#
+# DVD Drive
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#Update Bookmarks - Everwhere for screens and browers
+#
+#
+#
+#
+#
+#
+#
+# -------------------------------------------------------------
+# Help Display Commads
+#
+#  
+# ---------------- Glimpse Command Switches -------------------
+# '-i' = Case Insentive  '-w' = Word Matches only  -l Filename Matches Only
+# '-X' = Print Filename when match is in index but not on disk!
+#
+alias gi='glimpse -i '         # Find Text  (Case Insenstive)
+#
+alias gil='glimpse -i -l '     # Find Text  (Case Insenstive) (Just Matching Filenames)
+alias giwl='glimpse -i -w -l ' # Find Words (Case Insenstive) (Just Matching Filenames)
+alias gwl='glimpse -w -l'      # Find Words (Case Counts)     (Just Matching Filenames) 
+#
+alias giw='glimpse -i -w '     # Find Words (Case Insenstive)
+alias gw='glimpse -w '         # Find Words (Case Counts)
+#
+alias glw='glimpse -l -w '     # Find Full Filenames  (Case Counts)
+alias gl='glimpse -l '         # Find Filenames       (Case Counts)
+#
+alias gilw='glimpse -l -i -w ' # Find Full Filenames  (Case Insensitive)
+alias gil='glimpse -l -i '     # Find Filenames       (Case Insensitive)
+#
+#  
+# Incremental Update of Current Index
+#   
+alias gupd='nice -n 19 glimpseindex -b -B -f -M 200 -n /home/thornton'  #Incremental Update of Current Index
+#
+# Build Index Commands ('gidx' must be first -- Then 'glocal' and  'gshare' <gbvol is optional -- but not recommended!)
+#
+alias gmidx='nice -n 19 glimpseindex -b -B -M 200 -n /home/thornton'    #Build Base Index (Medium Format)
+#
+alias gusr='nice  -n 19 glimpseindex -b -B -a -M 200 -n /usr'           #Add '/usr/...'  to Index (Add new dir to index)
+alias gbvol='nice -n 19 glimpseindex -b -B -a -M 200 -n /bvol'          #Add '/bvol/...' to Index (Add new dir to index)
+alias gcvol='nice -n 19 glimpseindex -b -B -a -M 200 -n /cvol'          #Add '/cvol/...' to Index (Add new dir to index)
+#
+# ---------------------------------------------------------------
+#
+alias cfc='cf_core'             # Dot   Circle 
+alias cft='cft_core'            # Dot   Text
+alias cfn='cfn_core'            # Neato Circle
+#
+# ---------------- Backup Cell Commands---------------------
+#
+alias sib='sind'                         ##cp -fr $1 --backup=t  .BackupCell
+alias sibn='sind_new'                    ##Combines snew and sib
+alias uib='uind'                        ##cp -fr --backup=t  .BackupCell/$1 .
+#
+#
+# Create and Export Backup Logicals
+#
+#
+# Save 'NEWFILES' Commands
+#
+#
+# 
+# ---------------- Save Cell Commands -------------------
+#
+# Primary Save Cell Commands
+#
+alias cc='~/Bin/create_cell'            ##  cc         - Create Cell Structure
+alias dc='~/Bin/diff_cell'              ##  dc {file}  - diff between cell 0 and specified file
+alias gc='~/Bin/get_cell'               ##  gc {n}     - get cell 'n'
+alias kc='~/Bin/kill_cell'              ##  kc         - Destroy Cell Structure
+alias lc='~/Bin/list_cell'              ##  lc {n}     - Directory Listing of cell 'n'
+alias mc='~/Bin/milestone_cell'         ##  mc         - Store Dir Copy in Milestone(store) Cells' and in 'Save Cells'
+alias sc='~/Bin/save_cell'              ##  sc         - Store Dir Copy in 'Save Cells' only
+alias fc='~/Bin/save_cell; ~/Bin/milestone_cell' ##    - Full Save (Wasteful - But often done just to be sure!!)
+#
+# Holding Cell Commands
+#
+alias dh='~/Bin/del_hold'               ##  dh         - Destory Hold Cell Contents
+alias gh='~/Bin/get_hold'               ##  gh {file}  - Copy 'file' from Hold Cell to base directory
+alias lh='~/Bin/list_hold'              ##  lh         - List Hold Cell Directory
+alias sh='~/Bin/save_hold'              ##  sh {file}  - Save 'file' in base Directory to Hold Cell    
+#
+# Fragment Cell Commands
+#
+alias df='~/Bin/del_frag'               ##  df         - Destory Fragment Cell Contents                    
+alias gf='~/Bin/get_frag'               ##  gf {file}  - Copy 'file' from Fragment Cell to base directory  
+alias lf='~/Bin/list_frag'              ##  lf         - List Fragment Cell Directory                      '
+alias sf='~/Bin/save_frag'              ##  sh {file}  - Save 'file' in base Directory to Fragment Cell    '
+#
+# Cell Navigation Commands
+#
+#
+#
+# ---------------------------------------------------------------
+#
+#
+#
+#
+#
+#
+#
+alias rc='rm -f .*~; rm -f *~; rm -f \#*\#; rm -f *.old; rm -f *.tmp; rm -f *.err; rm -f *.lst; rm -f *.list'
+#
+alias clean='rm -Rf *~*~ &>/tmp/null;rm -Rf .*~*~ &>/tmp/null;rm -Rf *~ &>/tmp/null;rm -Rf *.bak &>/tmp/nul; rm -Rf *# &>/tmp/nul'
+#
+#
+# (P)ush(D) to Important Areas
+#
+#
+# (C)(D) to Important Areas 
+#
+#
+#
+#  Area Aliases 
+#
+#
+#
+# GO Down Generic
+#
+#
+#
+#
+#Base Area Aliases
+#
+#
+#
+#
+# Local Tar's
+#
+#
+# CD Tar's
+#
+#
+# Backup Script **** OBSOETE --- See 'isave'
+#
+alias iback='/home/thornton/Bin/ibackup'       #lback {'n' prev days} {backup file name modifier} 
+alias ibck='/home/thornton/Bin/ibackup'        #Example:  "lback 7 oct8"
+alias ib='/home/thornton/Bin/ibackup'	       #Produces: 'home-7_loc_oct8.tgz' and 'dtree-7_loc_oct8.tgz
+#
+# Backup Difference Engine Setup
+#
+#
+#
+#
+BVUI_IMG=$BVUI/Combined_Tar_Dec_27_2005.tar   #MUST BE LATEST 'Combined_Tar_mm_dd_yyyy' Image File
+#
+#
+#----------------- General Area Backup Commands ---------------
+#
+#
+#
+alias dscan='doscan'       # Scan All Backup Sites for Current Files
+#
+alias tararc='tar2arc '    # tararc  <area_to_tar> <name of tar>    
+alias tarbvol='tar2bvol '  # tarbvol <area_to_tar> <name of tar> 
+alias tararea='tar2here '  # tararea  <area_to_tar> <name of tar>
+#
+#------------------------ PRIMARY INC SAVE FUNCTION ---------------------------
+#
+alias tarnite='tar_onite'      # All Incremental Saves PLUS Glimpse Inc Update
+#
+#------------------------------------------------------------------------------
+#
+alias tarwrk='tar_working'     # Tar Current Working Projects and Directories
+alias tarkde='tar_kde2bvol'    # tarkde  <date of tar> - .kde Directories
+alias taridbg='tar_idbg2bvol ' # taridbg <date of tar> - idbg tool directory  
+alias tarrhg='tar_rhg2bvol   ' # tarrhg  <date of tar> - RHG Document Directory  
+alias tar190='tar_1902bvol   ' # tar190  <date of tar> - RubyMod190 Directory  
+#
+#==========================================================================================#===========================================================================================
+# CURRENT BACKUP (SGB) COMMANDS and AUXILLARY SAVE COMMANDS
+#
+# csave   - Cleans Home Directories and Performs SGB Backup
+# bsave   - Performs SGB Backup
+# hsave   - Performs Home Image Backup (thornton ==> thornton)
+# asave   - Saves Auxillary Directories and Selected Files
+#
+# Web Page Save
+#
+# wsave   - Save WEB Directories
+#
+# Selected SNEW saves!
+#
+# kdesave - SNEW KDE Setups
+# bbsave  - SNEW Save of Bookmarks and .bash* 
+#
+alias bsave='/home/thornton/Bin/sgb_base'           #Make Full Backup of Home Area
+alias csave='/home/thornton/Bin/clean_sgb_base'     #Clean & Make Full Backup of Home Area
+#
+#
+#
+#
+#
+#
+alias bbsave='save_bm_bash'      ## bbsave does a SNEW for .bash* and bookmarks.xml
+#
+#
+# Save Bookmarks and .Bashrc to NEW Areas
+#
+# Restore BaseDir Dir
+#
+#
+# Clean Home Save Areas
+#
+#
+#
+# Basic Navigation for Backup Storage
+#
+#
+#==========================================================================================
+#===========================================================================================
+#
+#        HISTORICAL STUFF (Depreciated)
+#
+#alias isave='/home/thornton/Bin/save_inc'      #INC Save From BVUI_IMG 
+##
+#alias cdcd='cd /cvol/CD_BURN_IMAGES'           #Transfer to CD_BURN_IMAGES
+#alias pdcd='pushd  /cvol/CD_BURN_IMAGES'       #Transfer to CD_BURN_IMAGES
+##
+#alias cdrs='cd /cvol/REMOTE_STORAGE'           #Transfer to REMOTE_STORAGE
+#alias pdrs='pushd  /cvol/REMOTE_STORAGE'       #Transfer to REMOTE_STORAGE
+##
+# Make a copy of Hidden .kde Files  (Has all your KDE Setups)
+#
+#
+# Backup (Current Scheme) Logical Definition for Incremental Backup
+# ***WARNING:  
+#       REM_IMG Must be the latest :  "saveset0.tar in /cvol/REMOTE_STORAGE/BACKUP"
+#
+#REM_STORE=/cvol/REMOTE_STORAGE
+#RS=/cvol/REMOTE_STORAGE
+#export REM_STORE RS
+#
+#REM_IMG=/cvol/REMOTE_STORAGE/BACKUP/saveset0.tar
+#REM_IMG_PREV=/cvol/REMOTE_STORAGE
+#export REM_IMG REM_IMG_PREV
+#
+#=======================================================
+#
+#
+#
+#
+#
+#
+#=======================================================
+#
+#
+#
+# Build Full Set of Tar/Gzip Files and Save Image of '/home/thornton'
+# Order of Exectution:
+#   1) a) su
+#      b) make Dates Correct in 'tar_loc_share'
+#      c) tar_loc_share
+#   2) tarall
+#   3) tarsplit
+#
+#   make CD's (CD1 and CD2)
+#
+#
+# Bash line ID
+#
+#PS1='\H(\W)\$'
+#
+# Download Areas Aliases and defines 
+#
+#
+#
+#
+#
+# ScratchPad Areasn Aliases and defines 
+#
+#
+#
+#Special Defines
+#
+#
+#Area Defines
+#
+#Temporary Removal Necessary for Building Postgresql
+#
+#
+#
+#LabNotebook Defines (VI)
+#
+#
+#LabNotebook Defines (EMACS)
+#
+#
+#Ruby Notebook Defines (VI)
+#
+#
+#Ruby Notebook Defines (EMACS)
+#
+#
+#CVS Defines
+#

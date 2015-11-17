@@ -1,0 +1,15 @@
+<h2>Please edit your answer</h2>
+
+<form method="post" action="/answers/<%=@answer.id %>">
+	<input name="_method" type="hidden" value="put" />
+
+	<textarea class="form-control" rows="5"  name="answer[answer_detail]"><%=@answer.answer_detail %></textarea>
+
+	<button type="submit" class="btn btn-default">change</button>
+
+</form>
+
+<% if @answer &&  @answer.errors.full_messages.each do |error|%>
+<%= error %>
+	<% end %>
+<% end %>

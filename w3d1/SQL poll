@@ -1,0 +1,110 @@
+-- .schema
+CREATE TABLE congress_members (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  name VARCHAR(64) NOT NULL,
+  party VARCHAR(64) NOT NULL,
+  location VARCHAR(64) NOT NULL,
+  grade_1996 REAL,
+  grade_current REAL,
+  years_in_congress INTEGER,
+  dw1_score REAL
+, created_at DATETIME, updated_at DATETIME);
+CREATE TABLE voters (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    first_name VARCHAR(64) NOT NULL,
+    last_name  VARCHAR(64) NOT NULL,
+    gender VARCHAR(64) NOT NULL,
+    party VARCHAR(64) NOT NULL,
+    party_duration INTEGER,
+    age INTEGER,
+    married INTEGER,
+    children_count INTEGER,
+    homeowner INTEGER,
+    employed INTEGER,
+    created_at DATETIME NOT NULL,
+    updated_at DATETIME NOT NULL
+  );
+CREATE TABLE votes (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    voter_id INTEGER,
+    politician_id INTEGER,
+    created_at DATETIME NOT NULL,
+    updated_at DATETIME NOT NULL,
+    FOREIGN KEY(voter_id) REFERENCES voters(id),
+    FOREIGN KEY(politician_id) REFERENCES congress_members(id)
+  );
+
+/* Count votes for Sen. Olympia Snowe, whose congress_member.id is 524 */
+SELECT count(voter_id)
+FROM votes
+WHERE politician_id=524;
+
+/* Use JOIN to join the the "votes" and "congress_members" tables and then count the number of votes Sen. Olympia Snowe got */
+SELECT congress_members.name, COUNT(voter_id)
+FROM votes INNER JOIN congress_members
+ON votes.politician_id=congress_members.id
+WHERE congress_members.name='Sen. Olympia Snowe';
+
+/* Use JOIN to join the the "votes" and "congress_members" tables and then count the number of votes Rep. Erik Paulsen got */
+SELECT congress_members.name, COUNT(voter_id)
+FROM votes INNER JOIN congress_members
+ON votes.politician_id=congress_members.id
+WHERE congress_members.name='Rep. Erik Paulsen';
+
+/* Make a list of Congress members that got the most votes, in descending order. */
+SELECT congress_members.name, COUNT(voter_id)
+FROM votes INNER JOIN congress_members
+ON votes.politician_id=congress_members.id
+GROUP BY politician_id
+ORDER BY COUNT(voter_id) DESC, congress_members.name ASC;
+/* LIMIT 5; */
+
+/* Make a list of all the Congress members that got the least number of votes, in ascending order. */
+SELECT congress_members.name, COUNT(voter_id)
+FROM votes INNER JOIN congress_members
+ON votes.politician_id=congress_members.id
+GROUP BY politician_id
+ORDER BY COUNT(voter_id) DESC, congress_members.name ASC
+/* LIMIT 5; */
+
+-- Which Congress member received the most votes? List their name and a count of their votes.
+SELECT congress_members.name, COUNT(voter_id)
+FROM votes INNER JOIN congress_members
+ON votes.politician_id=congress_members.id
+GROUP BY politician_id
+ORDER BY COUNT(voter_id) DESC, congress_members.name ASC
+LIMIT 2;
+
+-- Who were the people that voted for that politician? List their names, gender and party.
+SELECT voters.first_name, voters.last_name, voters.gender, voters.party, congress_members.name
+FROM votes INNER JOIN voters ON votes.voter_id=voters.id
+INNER JOIN congress_members ON votes.politician_id=congress_members.id
+WHERE congress_members.name='Rep. Dan Benishek';
+
+-- How many votes were received by Congress members whose communication grade average was less than 9 (this number can be found in the grade_current field)? List their name, location, grade since 1996, and the vote count.
+SELECT congress_members.name, congress_members.location, congress_members.grade_1996, congress_members.grade_current, COUNT(voter_id)
+FROM votes INNER JOIN congress_members
+ON votes.politician_id=congress_members.id
+WHERE congress_members.grade_current<9
+GROUP BY politician_id
+ORDER BY COUNT(voter_id) DESC, congress_members.name ASC;
+
+-- What 10 states had the most voters turnout? (Does this correspond to the population of those states?) List the people that voted in the top state's elections.
+SELECT congress_members.location, COUNT(voter_id)
+FROM votes INNER JOIN congress_members
+ON votes.politician_id=congress_members.id
+GROUP BY location
+ORDER BY COUNT(voter_id) DESC, location ASC
+LIMIT 10;
+-- List the people that voted more than 2 times?
+SELECT voters.first_name, voters.last_name, COUNT(politician_id)
+FROM votes INNER JOIN voters
+ON votes.voter_id=voters.id
+GROUP BY last_name
+ORDER BY COUNT(politician_id) DESC, last_name ASC;
+-- Did anyone vote for the same politician twice? What was the name of the voter and the politician they voted for?
+SELECT voters.first_name, voters.last_name, congress_members.name, COUNT(*)
+FROM votes INNER JOIN congress_members ON votes.politician_id=congress_members.id
+INNER JOIN voters ON votes.voter_id=voters.id
+GROUP BY congress_members.name, votes.voter_id
+HAVING COUNT(*) > 1;

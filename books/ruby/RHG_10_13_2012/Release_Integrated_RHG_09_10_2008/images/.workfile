@@ -1,0 +1,209 @@
+Bashrc/Bash_profile Mod
+CD BURN Helpers
+cp cd images to correct numbered image files!
+Current Helpers
+last/previous directory
+low priority
+low priority
+Compare current area and $1 with current 1.8.5
+Compare current area and $1 with current 1.8.5
+Restricted Locate Command
+Full Locate Command
+Debuggers
+gbd frontend (or IDE) debug
+gbd frontend (or IDE) debug
+Ruby Core Helpers
+Remote Load Ruby Hackers Guides
+GO TO  Current  Project and Supporting Alias!
+Short Run Ruby Logicals
+Short Run Ruby Aliases
+go to mod_185 test areas
+Previous GO Versions  (Previous History:  ph<n> and labeled versions ph<xxx>)
+File Utilities
+Old Friends (Defines)
+EDITOR=xemacsgo
+export EDITOR
+'expand coverts tabs to spaces ( expand <file> >result (standard output)
+RAILS Stuff
+Major Software Transfers
+Document Transfer Areas
+Download Transfer Areas
+Work Display File Loading
+DSL Stuff
+Xcdroast
+UML Modeler 'umbrello'
+Old Friends (Alias's)
+bldcvs (Project Name}
+Snaviagtor Helpers
+Basic Search of *.c/y/h
+idbg Stuff
+Tedit Stuff
+Remote Actions
+Remote Searches
+Grep both Aliases and Logicals
+Grep Bookmarks File
+Grep Bin Files
+Find Bash Scripts in $BIN
+Find Ruby Scripts in $BIN
+Find Bash Scripts in Current Area
+Find Ruby Scripts in Current Area
+Stacked 'grep' commands
+grep -i $1 *
+grep -i $1 * | grep -i $2
+grep -i $1 * | grep -i $2  | grep -i $3
+grep -i $1 * | grep -i $2  | grep -i $3 | grep -i $4
+Stacked 'grep' commands with secondary inversion stacks
+grep -i $1 * | grep -iv $2
+grep -i $1 * | grep -iv $2  | grep -iv $3
+grep -i $1 * | grep -iv $2  | grep -iv $3 | grepv -i $4
+Ruby Version/Hello Commands
+My type wget (No Directory Creation)
+Standard wget (Create Directories)
+current month calendar
+prev/current/next month calendars
+CD ROM R/W Drive
+DVD Drive
+Update Bookmarks - Everwhere for screens and browers
+-------------------------------------------------------------
+Help Display Commads
+---------------- Glimpse Command Switches -------------------
+'-i' = Case Insentive  '-w' = Word Matches only  -l Filename Matches Only
+'-X' = Print Filename when match is in index but not on disk!
+Find Text  (Case Insenstive)
+Find Text  (Case Insenstive) (Just Matching Filenames)
+Find Words (Case Insenstive) (Just Matching Filenames)
+Find Words (Case Counts)     (Just Matching Filenames)
+Find Words (Case Insenstive)
+Find Words (Case Counts)
+Find Full Filenames  (Case Counts)
+Find Filenames       (Case Counts)
+Find Full Filenames  (Case Insensitive)
+Find Filenames       (Case Insensitive)
+Incremental Update of Current Index
+Incremental Update of Current Index
+Build Index Commands ('gidx' must be first -- Then 'glocal' and  'gshare' <gbvol is optional -- but not recommended!)
+Build Base Index (Medium Format)
+Add '/usr/...'  to Index (Add new dir to index)
+Add '/bvol/...' to Index (Add new dir to index)
+Add '/cvol/...' to Index (Add new dir to index)
+---------------------------------------------------------------
+Dot   Circle
+Dot   Text
+Neato Circle
+---------------- Backup Cell Commands---------------------
+#cp -fr $1 --backup=t  .BackupCell
+#Combines snew and sib
+#cp -fr --backup=t  .BackupCell/$1 .
+Create and Export Backup Logicals
+Save 'NEWFILES' Commands
+---------------- Save Cell Commands -------------------
+Primary Save Cell Commands
+#  cc         - Create Cell Structure
+#  dc {file}  - diff between cell 0 and specified file
+#  gc {n}     - get cell 'n'
+#  kc         - Destroy Cell Structure
+#  lc {n}     - Directory Listing of cell 'n'
+#  mc         - Store Dir Copy in Milestone(store) Cells' and in 'Save Cells'
+#  sc         - Store Dir Copy in 'Save Cells' only
+#    - Full Save (Wasteful - But often done just to be sure!!)
+Holding Cell Commands
+#  dh         - Destory Hold Cell Contents
+#  gh {file}  - Copy 'file' from Hold Cell to base directory
+#  lh         - List Hold Cell Directory
+#  sh {file}  - Save 'file' in base Directory to Hold Cell
+Fragment Cell Commands
+#  df         - Destory Fragment Cell Contents
+#  gf {file}  - Copy 'file' from Fragment Cell to base directory
+#  lf         - List Fragment Cell Directory                      '
+#  sh {file}  - Save 'file' in base Directory to Fragment Cell    '
+Cell Navigation Commands
+---------------------------------------------------------------
+*\#; rm -f *.old; rm -f *.tmp; rm -f *.err; rm -f *.lst; rm -f *.list'
+&>/tmp/nul'
+(P)ush(D) to Important Areas
+(C)(D) to Important Areas
+Area Aliases
+GO Down Generic
+Base Area Aliases
+Local Tar's
+CD Tar's
+Backup Script **** OBSOETE --- See 'isave'
+lback {'n' prev days} {backup file name modifier}
+Example:  "lback 7 oct8"
+Produces: 'home-7_loc_oct8.tgz' and 'dtree-7_loc_oct8.tgz
+Backup Difference Engine Setup
+MUST BE LATEST 'Combined_Tar_mm_dd_yyyy' Image File
+----------------- General Area Backup Commands ---------------
+Scan All Backup Sites for Current Files
+tararc  <area_to_tar> <name of tar>
+tarbvol <area_to_tar> <name of tar>
+tararea  <area_to_tar> <name of tar>
+------------------------ PRIMARY INC SAVE FUNCTION ---------------------------
+All Incremental Saves PLUS Glimpse Inc Update
+------------------------------------------------------------------------------
+Tar Current Working Projects and Directories
+tarkde  <date of tar> - .kde Directories
+taridbg <date of tar> - idbg tool directory
+tarrhg  <date of tar> - RHG Document Directory
+tar190  <date of tar> - RubyMod190 Directory
+==========================================================================================#===========================================================================================
+CURRENT BACKUP (SGB) COMMANDS and AUXILLARY SAVE COMMANDS
+csave   - Cleans Home Directories and Performs SGB Backup
+bsave   - Performs SGB Backup
+hsave   - Performs Home Image Backup (thornton ==> thornton)
+asave   - Saves Auxillary Directories and Selected Files
+Web Page Save
+wsave   - Save WEB Directories
+Selected SNEW saves!
+kdesave - SNEW KDE Setups
+bbsave  - SNEW Save of Bookmarks and .bash*
+Make Full Backup of Home Area
+Clean & Make Full Backup of Home Area
+# bbsave does a SNEW for .bash* and bookmarks.xml
+Save Bookmarks and .Bashrc to NEW Areas
+Restore BaseDir Dir
+Clean Home Save Areas
+Basic Navigation for Backup Storage
+==========================================================================================
+===========================================================================================
+HISTORICAL STUFF (Depreciated)
+alias isave='/home/thornton/Bin/save_inc'      #INC Save From BVUI_IMG
+#
+alias cdcd='cd /cvol/CD_BURN_IMAGES'           #Transfer to CD_BURN_IMAGES
+alias pdcd='pushd  /cvol/CD_BURN_IMAGES'       #Transfer to CD_BURN_IMAGES
+#
+alias cdrs='cd /cvol/REMOTE_STORAGE'           #Transfer to REMOTE_STORAGE
+alias pdrs='pushd  /cvol/REMOTE_STORAGE'       #Transfer to REMOTE_STORAGE
+#
+Make a copy of Hidden .kde Files  (Has all your KDE Setups)
+Backup (Current Scheme) Logical Definition for Incremental Backup
+***WARNING:
+REM_IMG Must be the latest :  "saveset0.tar in /cvol/REMOTE_STORAGE/BACKUP"
+REM_STORE=/cvol/REMOTE_STORAGE
+RS=/cvol/REMOTE_STORAGE
+export REM_STORE RS
+REM_IMG=/cvol/REMOTE_STORAGE/BACKUP/saveset0.tar
+REM_IMG_PREV=/cvol/REMOTE_STORAGE
+export REM_IMG REM_IMG_PREV
+=======================================================
+=======================================================
+Build Full Set of Tar/Gzip Files and Save Image of '/home/thornton'
+Order of Exectution:
+1) a) su
+b) make Dates Correct in 'tar_loc_share'
+c) tar_loc_share
+2) tarall
+3) tarsplit
+make CD's (CD1 and CD2)
+Bash line ID
+PS1='\H(\W)\$'
+Download Areas Aliases and defines
+ScratchPad Areasn Aliases and defines
+Special Defines
+Area Defines
+Temporary Removal Necessary for Building Postgresql
+LabNotebook Defines (VI)
+LabNotebook Defines (EMACS)
+Ruby Notebook Defines (VI)
+Ruby Notebook Defines (EMACS)
+CVS Defines

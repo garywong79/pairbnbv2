@@ -1,0 +1,203 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">  <!doctype html public "-//w3c//dtd html 4.01 transitional//en">
+<html lang="ja-JP">
+<head><base href="">
+
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Language" content="ja-JP">
+  <link rel="stylesheet" type="text/css" href="rhg.css">
+  <link rev="made" href="mailto:aamine@loveruby.net">
+<title>Preface</title></head>
+<body>
+
+<h1>Introduction to Code Analysis</h1>
+<p>
+This document is a rewrite of the the section on code analysis in the Standard Introduction.. As such,  It is presented here in addition to the Standard Introduction.
+</p>
+<h2>The motive for reading source code</h2>
+<p>The best way to understand a program is to read it carefully.&nbsp&nbsp  First,&nbsp  try to discern the purpose of various sections of the program.&nbsp&nbsp  Create a high level processing chart,&nbsp  in your mind at least.&nbsp&nbsp Then iteratively examine the program,&nbsp  understanding ever finer details about the code.&nbsp&nbsp  The rest of this document outlines various <i>tactics</i> for accomplishing this <i>strategic</i> goal.
+</p>
+<h2>Decision, Decisions...</h2>
+<p>Now that you have decided to understand how this program works,&nbsp  you have to decide how to accomplish the task.&nbsp&nbsp That to a large extent depends on your talents and experience level.&nbsp&nbsp The various <i>tactics</i> available are detailed below.&nbsp&nbsp Which ones are used depends on you.&nbsp&nbspFind out which techniques work for you.&nbsp&nbsp Write your own tools if think it will help.&nbsp&nbsp
+</p><p>
+ The tool IDBG came about because I wanted a tool that not only made it easy to insert instrumentation into programs, but more importantly make easy to remove that instrumentation without leaving corrupted code behind me.
+</p>
+<h2>Technique</h2>
+<p>Speaking  roughly, it can classify analytical techniques into static and dynamic techniques.&nbsp&nbsp  Static techniques, start with reading source code.&nbsp&nbsp  Dynamic techniques,&nbsp  using the debuggers,&nbsp  and the like means to trace the program flow at execution time.
+</p>
+<p>It is good for analysis to begin with dynamic analysis.&nbsp&nbsp   Static analysis is somewhat more difficult,&nbsp  in the beginning,&nbsp  to fathom the operation of the program. &nbsp&nbsp What you examine with dynamic analysis is fact.&nbsp&nbspInsrumentation reporting on the program flow is not subject to opinions.&nbsp&nbsp  It is good to start from a position of truth.</p>
+
+
+<h2>Static analysis</h2>
+<h3>Run the program</h3> <p>
+Running the program with various inputs documents and see <i>what</i> the program does.
+&nbsp&nbsp What inputs are valid and what outputs are produced.&nbsp&nbsp From this data, a starting point for analysis should be able to be discerned.
+</p>
+</dd>  <h3>Read available program documentation</h3> <p>
+Read all available documentation, especially things containing words like: <i>Hacking, Tour,</i> and<i> Quick start</i>.&nbsp&nbsp You should also try to validate the program usage cases.&nbsp&nbsp Does it actually work the way it is documented.&nbsp&nbsp Again,&nbsp  the running program does not lie,&nbsp  the documentation often does!
+</p>
+</dd>  
+<h3>Directory structure</h3> <p>
+Examine the directory structure of the source code.&nbsp&nbsp How the development directories are structured will give you hints on the module and source code relationships.
+</p>
+
+<h3>File structure</h3> <p>
+Another important aspect of reading source code,&nbsp  is to notice names and prefixes used in module and function names.&nbsp&nbsp Try and discern any systematic naming conventions and the meaning of abbreviations.&nbsp&nbspFor example in Ruby,&nbsp  does GC relate to Garbage Collection or Graphic Context?&nbsp&nbsp Ruby is very good about naming conventions.
+<p></dd>
+<h3>Investigation </h3>
+<p>Investigate the context of how names are used.&nbsp&nbsp What is the relationship between the
+basic functions of the program and generally accepted names and abbreviations used by software
+professionals.&nbsp&nbsp Ruby uses hash tables extensively.&nbsp&nbspAsk yourself, why?  
+</p>
+</dd><h3>Data structures </h3> <p>
+Understanding the data structures used by a program is half the battle.&nbsp&nbsp Knowing those gives a programmer a step up in understanding the source code.&nbsp&nbsp  What types of structures are used?&nbsp&nbsp We have already mentioned hast tables.&nbsp&nbspRuby also uses the stack extensively.&nbsp&nbsp Look into what is stored on the stack.&nbsp&nbsp
+</p><h3>C definition files (*.h) </h3> <p>
+C definition files can be mined extensively of information.&nbsp&nbsp Structures and Unions obviously.&nbsp&nbsp But also variable names and documentation associate with them.&nbsp&nbsp In the case of Ruby that are a large number of interesting constructs defined in these files.
+</p><h3>Call Graphs</h3><p>
+Use tools to create both static call graphs and dynamic flow data.&nbsp&nbsp Call graphs help the programmer grasp the overall processing flow.&nbsp&nbsp Dynamic processing flow reports how the program works when processing different input data.&nbsp&nbsp That is, the processing flow will often change depending on the data being processed.&nbsp&nbsp This is especially true with interpreters.
+</p></dd>  
+<h3>Functions</h3> <p>
+As a better understanding of overall program is reached,&nbsp  the inner workings of the functions need to be better understood.&nbsp&nbsp You move from understanding functions from a <i>Black Box</i> perspective, understanding of how the <i>Black Box</i> actually works.
+</p>
+<p><h4>Rewriting, it moves</h4>
+<p>
+Another technique for understanding how a particular section of code works is to modify it.&nbsp&nbsp You will often find that section code does not conform completely to your understanding.&nbsp&nbsp The process of determining why it surprised you will often lead a deeper understanding of the source code!
+</p>
+<h3>Reading Change History</h3>
+<p>
+Reading the Change Log for a program will give a lot of insight the workings of a program.&nbsp&nbsp Look at the changes and the stated reason for the change.&nbsp&nbsp Try to work out <i>why</i> the change was necessary.&nbsp&nbsp Where there number of changes in the same area of the code?
+</p><p>In addition, when using a code management systems,&nbsp  like CVS,&nbsp  there is a record of the
+actual changes and a history of release notes.&nbsp&nbspAgain the value of examining this information is invaluable.&nbsp&nbsp The best feature of source code management systems is the exact code changes are maintained!
+</p>
+<h2>Tools for Dynamic Analysis</h2>
+<p>
+With dynamic analysis using the debugger and the implanted print statements,&nbsp  you analyze the processing flow.&nbsp&nbsp 
+</p>
+<H3>IDBG Debugger</h3>
+<p>
+Printf debugging is normally considered a primitive form of dynamic analysis.&nbsp&nbspHowever,
+with the IDBG Suite of programs,&nbsp  it is somewhat easier to use effectively.&nbsp&nbspThe tool suite is made up of four programs.&nbsp&nbsp</p>
+<ul>
+<li>idbg_scan - Used by 'mdbg' to generate a skelton control file.</li>
+<li>mdbg      - Creates a skelton control file which the user enhances.</li>
+<li>idbg      - Inserts the debugging code.</li>
+<li>rdbg      - Removes debugging code.</li>
+</ul>
+IDBG produces a control file with simple commands that <i>idbg/rdbg</i> understand.&nbsp&nbsp It comprises a preamble header for loading support programs,&nbsp  followed by an entry for each function in a program file.&nbsp&nbsp Without enhancement,&nbsp  IDBG will print a function header for each function as it executes.&nbsp&nbsp
+</p>
+<H3>GDB and SourceNavigator</h3>
+<p>
+GDB and SourceNavigator(<i>snavigator</i>) allow a programmer to explore a program at both static and dynamic levels.
+</p>
+<h3>DDD - Data Display Debugger</h3>
+<p>
+In addition,&nbsp  when the DDD (data display debugger) is  used, data is somewhat easier to understand.&nbsp&nbsp The DDD program is front-end  GUI for several debuggers.&nbsp&nbsp  For example, the following snapshot of the DDD program shows how a linked list can be displayed!.
+</p>
+<img src="images/all.jpg" alt="(Reference)"><br>
+<p>
+See:  "<i>http://www.gnu.org/software/ddd/</i>"
+</p>
+<h3>Ctrace, Strace and IDBG Programs</h3>
+<p>
+The Program <b><i>ctrace</i></b> allow the programmer to install tracing instrumentation into their programs. It is usually very targeted at critical sections of the programs code.
+</p>
+<p>The program IDBG can be used as a stand-alone debugger, &nbsp or used to enhance the versatility of Ctrace.
+</p>
+<p>
+The Program <b><i>strace</i></b> prints out the system calls executed during a program execution.
+</p>
+<p>
+See:  "<i>http://www.vicente.org/ctrace/</i>" 
+</p>
+<p>
+See:  "<i>http://www.hawthorne-press.com/idbg/</i>" 
+</p>
+<p>
+See:  "<i>http://www.liacs.nl/~wichert/strace </i>"
+</p>
+<h3>Recommended Reading</h3>
+<p>
+"Programming Languages" Ravi Sethi, Tom Stone; Addison-Wesley Pub Co; ISBN: 0201590654; 2nd edition (February 1996)
+</p>
+<h3>Tools for static analysis</h3>
+<h4>global</h4>
+<p>
+See:  "<i>http://www.gnu.org/software/global </i>"
+</p>
+<p>
+<dfn>For C/C++, Bash, Java, and Other Languages.  Provides functions such as a cross reference and tagging functions.&nbsp&nbsThis program is a more extensive and capable version
+</dfn></p>
+<h4>cscope</h4>
+<p>
+See:  "<i>http://cscope.sourceforge.net </i>" 
+<p>Cscope is a curses implemented source code viewer.&nbsp&nbsp It has many features in common with global.&nbsp&nbsp It can generate a cross reference list, find symbols, and perform many other functions.&nbsp&nbspHowever, snavigator is a better alternative.
+</p>
+<h4>ctags and etags</h4>
+<p>
+See:  "<i>http://ctags.sourceforge.net </i>"
+</p>
+Basically for C language(ctags => VI and etags => EMACS).&nbsp&nbspThese programs generate a tag file for the target editor.&nbsp&nbsp The tag file records the position of functions and  variables in the targeted files.&nbsp&nbspThis tag file allows these items to be quickly and easily located by a text editor 
+</p>
+<h4>lxr</h4>
+<p>
+See:  "<i>http://lxr.sourceforge.net </i>"
+</p>
+<p>
+The tool which was developed in order to support the  source code reading of the Linux.  Name has come from the Linux  Cross Referencer.
+<h4>doxygen</h4>
+See:  "<i>http://www.stack.nl/~dimitri/doxygen </i>"
+<p>
+This program extracts comments from a source code repository, and combines this information with cross-reference data.&nbsp&nbsp Doxygen helps navigate through a large code bases.
+</p>
+<h4>cxref</h4>
+<p>
+See:  "<i>http://www.gedanken.demon.co.uk/cxref </i>"
+</p>
+<p>Documentation is produced for each of the following: 
+<ul>
+<li>Files - A comment that applies to the whole file. </li>
+<li>Functions - A comment for the function, including a description of each of the arguments and the return value. </li>  
+<li>Variables - A comment for each of a group of variables and/or individual variables. 
+<li>#include - A comment for each included file.  
+<li>#define - A comment for each pre-processor symbol definition, and for macro arguments.  
+<li>Type definitions - A comment for each defined type and for each element of a structure or union type.</li> 
+</ul>
+</p>
+<h4>cflow</h4>
+<p>
+See:  "<i>http://wh58-508.st.uni-magdeburg.de/sparemint/html/packages/cflow.html </i>"
+</p>
+<p>
+GNU cflow analyzes a collection of C source files and prints a graph, charting control flow within the program. </p><p>
+GNU cflow is able to produce both direct and inverted flow graphs for C sources. Optionally a cross-reference listing can be generated. Two output formats are implemented: POSIX and GNU (extended).</p><p> 
+Input files can optionally be preprocessed before analyzing.</p><p> 
+The package also provides Emacs major mode for examining the produced flowcharts in Emacs. </p><p>
+</p>
+
+<h4>SXT</h4>
+<p>
+See:  "<i>http://sxt.freeservers.com </i>"
+</p>
+<p>
+Relationship of functions can be visualized.&nbsp&nbspPrograms provided to display a call graph and data structure graph.
+</p>
+<h4>VCG</h4>
+<p>
+See:  "<i>http://rw4.cs.uni-sb.de/users/sander/html/gsvcg1.html </i>"</p><p>
+The VCG tool reads a textual and readable specification of a graph and visualizes the graph. If not all positions of nodes are fixed, the tool layouts the graph using several heuristics as reducing the number of crossings, minimizing the size of edges, centering of nodes</p>
+</p>
+<h4>graphviz</h4>
+<p>
+See:  "<i>http://www.research.att.com/sw/tools/graphviz </i>"
+</p>
+<p>
+Graph visualization is a way of representing structural information as diagrams of abstract graphs and networks. Automatic graph drawing has many important applications in software engineering, database and web design, networking, and in visual interfaces for many other domains</p>
+<br><br>
+<hr>
+
+<p>
+The original work is Copyright &copy; 2002 - 2004 Minero AOKI.<br>
+Translations and Additions  by C.E. Thornton<br>
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/2.5/"><img alt="Creative Commons License" border="0" src="images/somerights20.jpg"/></a><br/>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/2.5/">Creative Commons Attribution-NonCommercial-ShareAlike2.5 License</a>.
+</p>
+</body>
+</html>

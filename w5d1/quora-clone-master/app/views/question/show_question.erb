@@ -1,0 +1,47 @@
+
+
+
+<div class="row">
+	<div class="span3 offset2">
+
+		<% if current_user.id != @question.user.id %>
+		<form method="get" action="/questions/<%=@question.id %>/answer/new">
+			<button type="submit" class="btn btn-default" >Write Answer</button>
+		</form>
+		<% end %>
+	</div>
+	<div class="span3 offset2">
+		<form method="get" action="/">
+			<button type="submit" class="btn btn-default" >Home</button>
+		</form>
+	</div>
+</div>
+
+
+<h3><%= @question.question_detail %></h3>
+<br>created by: <%= @question.user.name %>
+<br><%=@question.created_at %>
+
+
+
+	<% @answers.each do |answer| %>
+		<br><a href="/answers/<%=answer.id%>"><%= answer.answer_detail %></a>
+		<br><%= answer.user.name %>
+		<% if logged_in? && current_user.id ==answer.user.id %>
+		<a href="/answers/<%=answer.id %>/edit"><p>edit</p></a>
+
+		<form method="post" action="/answers/<%=answer.id %>">
+			<input name="_method" type="hidden" value="delete" />
+
+			<button type="submit" class="btn btn-default" >delete</button>
+	 		
+
+		</form>
+		<%end%>
+	<%end%>
+
+
+
+
+
+

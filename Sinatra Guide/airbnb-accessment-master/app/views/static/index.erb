@@ -1,0 +1,62 @@
+<div>
+
+
+<form method="get" action="/users/new">
+	<input type="submit" value="Login">
+</form>
+
+<form method="get" action="/users/new">
+	<input type="submit" value="Signup">
+</form>
+
+<div>
+	<dl><% Property.all.each do |property| %>
+		<dd><a href="</a><%=property.property_detail %>"><%=property.property_detail %></a></dd>
+		<dd><%=property.property_price %></dd>
+	
+	</dl>
+						<% if @user && logged_in? && property.user_id == current_user.id %>	
+						
+								<form method="get" action="/properties/<%=property.id %>/edit">
+									<input type="submit" value="edit">
+								</form>
+
+								<form method="post" action="/properties/<%=property.id %>">
+									<input type="hidden" name="_method" value="delete" />
+									<input type="submit" value="delete">
+								</form>
+						<% end %>
+
+						<% if @user && logged_in? && property.user_id != current_user.id %>
+
+								<form method="" action="">
+									<input type="submit" value="comment">
+								</form>
+
+								<form method="get" action="properties/<%= property.id %>/bookings/new">
+									<input type="submit" value="book">
+								</form>
+						<% end %>
+		<% end %>
+</div>
+
+
+<div>
+	<% if @user && logged_in? %>
+		<%= @user.name %>
+
+		<form method="get" action="/properties/<%= @user.id %>/new">
+			<input type="submit" value="Add Property">
+		</form>
+
+		<form method="post" action="/users/<%= @user.id %>">
+			<input type="hidden" name="_method" value="delete" />
+			<input type="submit" value="Log out">
+		</form>
+
+		
+
+	<% end %>	
+</div>
+
+</div>

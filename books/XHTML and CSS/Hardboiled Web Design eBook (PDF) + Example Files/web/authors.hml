@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+	<title> Hardboiled Web Design </title>
+    <meta charset = "utf-8">
+</head>
+<body>
+	<section>
+		<h1>Hardboiled Authors</h1>
+
+		<div class="inner group">
+
+			<div class = "vcard">
+				<h3 class = "org"> The No. 1 Lady Boys' Detective Agency </h3>
+				<p class="fn n">
+					<span class = "given-name">Cole</span>
+					<span class = "family-name">Henley</span>
+					<span class = "honorific-suffixes">Esq.</span>
+				</p>
+			</div>
+
+			<div class = "vcard">
+				<h3 class="fn org">Shades &amp; Staches Detective Agency</h3>
+				<p class="role">Private investigator extraordinare</p>
+			</div>
+
+			<div class = "vcard">
+				<h3 class = "fn org">
+					Command F Detective Services
+				</h3>
+				<p>We can find <em>anyone</em></p>
+			</div>
+
+			<div class="vcard">
+				<h3 class="fn">The Fat Man</h3>
+				<p class="role">Private Investigator</p>
+				<p>$50 a day plus expenses.
+				By appointment only</p>
+				<p>Dial: M for Murder</p>
+			</div>
+
+			<div class = "vcard">
+				<h3 class="fn org">Nick Jefferies</h3>
+				<p>
+					<span class="role">Private Eye</span>
+					<span class = "postal-code">WA6-0089</span>
+				</p>
+			</div>
+
+			<div class="vcard">
+				<h3 class="fn org">Elementary My Dear Watson</h3>
+				<p class="role">Private Investigator</p>
+				<p>Don't call us, we'll find you</p>
+			</div>
+
+		</div>
+	</section>
+</body>
+
+</html>
+
+

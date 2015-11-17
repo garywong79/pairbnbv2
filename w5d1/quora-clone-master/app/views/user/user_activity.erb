@@ -1,0 +1,12 @@
+<h2><%=@user.name %></h2>
+
+
+	<% @user.questions.each do |question| %>
+	<p>Posted question: <%=question.question_detail %></p>
+		<%question.answers.each do |answer|%>
+
+
+		<p> <ul><%=answer.answer_detail %></ul></p>
+	<% end %>
+<% end %>
+

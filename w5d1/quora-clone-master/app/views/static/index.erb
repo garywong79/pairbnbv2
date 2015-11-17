@@ -1,0 +1,78 @@
+<h1>Welcome to Quora</h1>
+
+
+
+<div>
+	<div>
+		<% if logged_in? %>
+			<br><h3>Welcome</h3>
+			<br><a href="/users/<%= current_user.id %>"><h3><%= current_user.name %></a></h3>
+			<br><a href="/questions/new">Create a question</a>
+			<form method="post" action="/logout">
+				<button type="submit" class="btn btn-default" >Logout</button>
+				 <input name="_method" type="hidden" value="delete" />
+			</form>
+		</div>
+		<hr>
+
+	
+
+	<% else %>
+		<a href="/signup">signup</a>
+		<a href="/login">login</a>
+		<%=@signup_succ if @signup_succ %>
+	<% end %>
+
+</div>
+
+	<div>
+
+		<% @questions.order(created_at: :desc).each do |question| %>
+	
+			<a href="/questions/<%=question.id %>">
+				<p><%=question.question_detail %></p>
+				
+			</a>
+			Total Vote: <%= question.total_vote %>
+			<%=question.created_at %>
+
+			<div>
+				<% if logged_in? && question.user.id != current_user.id %>
+
+				<form method="post" action="/questions/<%= question.id %>/question_upvotes">
+					<button type="submit" class="btn btn-default" >upvote</button>
+				</form>
+
+				<form method="post" action="/questions/<%= question.id %>/question_downvotes">
+					<button type="submit" class="btn btn-default" >downvote</button>
+				</form>
+				<% end %>
+			</div>
+		
+
+			created by: <a href="/users/<%= question.user.id %>/activity"><%=question.user.name %></a>
+
+			<% if question.answers.present? %>
+				<a href="/answers/<%= question.answers.last.id %>">
+					<p>
+						<%= question.answers.last.answer_detail %>
+					</p>
+				</a>
+			<% end %>
+
+
+			
+			<div>
+				<% if logged_in? && current_user.id == question.user.id %>
+					<a href="/questions/<%=question.id %>/edit"><p>edit</p></a>
+					<form method="post" action="/questions/<%=question.id %>/delete">
+						<button type="submit" class="btn btn-default" >delete</button>
+				 		<input name="_method" type="hidden" value="delete" />
+
+					</form>
+					<hr>
+			<% end %>
+		</div>
+		<% end %>
+
+	</div>

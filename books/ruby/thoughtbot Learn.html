@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<!-- saved from url=(0056)https://learn.thoughtbot.com/test-driven-rails-resources -->
+<html lang="en" class="wf-skolar1-n3-active wf-skolar1-n4-active wf-skolar1-n7-active wf-proximanova1-i3-active wf-proximanova1-i4-active wf-proximanova1-n3-active wf-proximanova1-n4-active wf-proximanova1-n6-active wf-proximanova1-n7-active wf-proximanova1-n9-active wf-proximanovascosf1-n4-active wf-skolar1-i4-active wf-active"><head prefix="og: http://ogp.me/ns#"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script type="text/javascript" async="" src="./thoughtbot Learn_files/intercom.v1.js"></script><script type="text/javascript" async="" src="./thoughtbot Learn_files/send.js"></script><script type="text/javascript" async="" src="./thoughtbot Learn_files/pax.js"></script><script type="text/javascript" async="" src="./thoughtbot Learn_files/ga.js"></script><script type="text/javascript">var NREUMQ=NREUMQ||[];NREUMQ.push(["mark","firstbyte",new Date().getTime()]);</script>
+    <script src="./thoughtbot Learn_files/384461827.js"></script>
+
+<meta charset="utf-8">
+<title>thoughtbot Learn</title>
+<link href="https://d3v2mfwlau8x6c.cloudfront.net/assets/application-aaf3a6bff85fedafe97e270bdcc98243.css" media="screen" rel="stylesheet">
+<link href="https://d3v2mfwlau8x6c.cloudfront.net/assets/print-6473554c5d724c887bac02fe1961d977.css" media="print" rel="stylesheet">
+
+<link rel="icon" href="https://learn.thoughtbot.com/favicon.ico" type="image/x-icon">
+<meta http-equiv="Description" name="Description" content="Workshops, screencasts, videos, and books to help you learn web design and development.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Keywords" name="Keywords" content="Ruby, Ruby on Rails, Design, Vim, Testing, JavaScript, iOS, Web Design, Git, Sass, Heroku, HTML &amp; CSS, Refactoring, UNIX, Typography, CSS Grids, tmux, Visual Principles, RubyMotion, SQL">
+<meta content="https://d3v2mfwlau8x6c.cloudfront.net/assets/ralph-gradient-04276df7cecbcd387e029f5c833249a3.png" property="og:image">
+<meta content="https://learn.thoughtbot.com/test-driven-rails-resources" property="og:url">
+<meta content="Workshops" property="og:title">
+  <script type="text/javascript" src="./thoughtbot Learn_files/jes4mbj.js"></script>
+  <style type="text/css">.tk-proxima-nova{font-family:"proxima-nova-1","proxima-nova-2",sans-serif;}.tk-skolar{font-family:"skolar-1","skolar-2",serif;}.tk-proxima-nova-sc-osf{font-family:"proxima-nova-sc-osf-1","proxima-nova-sc-osf-2",sans-serif;}</style><link rel="stylesheet" href="https://use.typekit.net/c/b7c891/proxima-nova-1:i3:i4:n3:n4:n6:n7:n9,proxima-nova-sc-osf-1:n4,skolar-1:i4:n3:n4:n7.Vmy:M:2,W0W:M:2,Vmx:M:2,W0V:M:2,W0X:M:2,W0Y:M:2,Vn7:M:2,S88:N:2,QyT:N:2,WnQ:M:2,QyQ:N:2,QyR:N:2/d?3bb2a6e53c9684ffdc9a98f01f5b2a62efecbb9f6f7c1f5106a6e80f0eb46ebfed54961bd3079bc0a9341be7c9f9dd898fe8201bb10a12369761bbb0d8bd572a86300b740efbc9430ed83adeb63bb820311fa7274df698c5c82db1c298d483cca2e9b9d324f60f0cae3701b22a8c972ff8fa37d24d2c67d01c5b45dc7e2711fe8b715c0d5991e5213092ce4ff574b79f645fb5b423a10b55415284078759f96768c4af482f9d7311fc36f0616ed159390b717c0000655e2625fd48afd2436bac1700978200f9756e8aeed1c9f9c43a5668aa8ace2f522db487435374cf534463295f91c0bebeb566d805369030015a641958764a391e5c84806bf207641b90e64af0b659423e192935"><script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+<meta content="authenticity_token" name="csrf-param">
+<meta content="UzFJVWrYTnEzUgjf6GG27MGaF9E9R3MIekSLUFrwdT8=" name="csrf-token">
+<!--[if lt IE 9]>
+<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+<script type="text/javascript" src="./thoughtbot Learn_files/saved_resource"></script>
+
+
+
+  <script type="text/javascript" async="" src="./thoughtbot Learn_files/i.js"></script><script type="text/javascript" async="" src="./thoughtbot Learn_files/fb630646a8d2b4cb9b5fae63ba61cc7cd2d194fb.1.js"></script><style type="text/css">  .send-to-readmill-popup-wrapper {
+position: absolute;
+top: -999999px;
+left: -999999px;
+width: 0;
+height: 0;
+z-index: 100000000;
+}
+
+.send-to-readmill-popup {
+position: absolute;
+background: #fff;
+border: #eee solid 2px;
+font: 14px/30px Georgia, Garamond, serif;
+text-align: center;
+color: #000;
+padding: 10px;
+-webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+-moz-box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+-ms-box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+-o-box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+white-space: nowrap;
+}
+.send-to-readmill-logged-in .send-to-readmill-popup {
+padding-left: 47px; /* For avatar */
+text-align: left;
+}
+
+/* Fake anchors to prevent style bleed */
+.send-to-readmill-link {
+color: #58852c;
+text-decoration: none;
+cursor: pointer;
+}
+.send-to-readmill-link:hover,
+.send-to-readmill-link:focus {
+color: #4F9C02;
+text-decoration: underline;
+outline: none;
+}
+
+.send-to-readmill-avatar {
+position: absolute;
+top: 10px;
+left: 10px;
+display: block;
+width: 30px;
+height: 30px;
+vertical-align: -5px;
+background-position: 0 0;
+background-repeat: no-repeat;
+background-size: 100% auto;
+}
+.send-to-readmill-avatar:hover {
+text-decoration: none;
+}
+
+/* Position large */
+
+.send-to-readmill-top .send-to-readmill-popup {
+top: -115px;
+}
+
+.send-to-readmill-bottom .send-to-readmill-popup {
+top: 33px;
+}
+
+.send-to-readmill-left .send-to-readmill-popup {
+top: -41px;
+right: 98px;
+}
+
+.send-to-readmill-right .send-to-readmill-popup {
+top: -41px;
+left: 98px;
+}
+
+.send-to-readmill-logged-in.send-to-readmill-top .send-to-readmill-popup {
+top: -85px;
+}
+
+.send-to-readmill-logged-in.send-to-readmill-left .send-to-readmill-popup {
+top: -26px;
+}
+
+.send-to-readmill-logged-in.send-to-readmill-right .send-to-readmill-popup {
+top: -26px;
+}
+
+/* Position small */
+
+.send-to-readmill-bottom.send-to-readmill-small .send-to-readmill-popup {
+top: 26px;
+}
+
+.send-to-readmill-top.send-to-readmill-small .send-to-readmill-popup {
+top: -108px;
+}
+
+.send-to-readmill-left.send-to-readmill-small .send-to-readmill-popup {
+top: -41px;
+right: 50px;
+}
+
+.send-to-readmill-right.send-to-readmill-small .send-to-readmill-popup {
+top: -41px;
+left: 50px;
+}
+
+.send-to-readmill-logged-in.send-to-readmill-top.send-to-readmill-small .send-to-readmill-popup {
+top: -78px;
+}
+
+.send-to-readmill-logged-in.send-to-readmill-left.send-to-readmill-small .send-to-readmill-popup {
+top: -26px;
+}
+
+.send-to-readmill-logged-in.send-to-readmill-right.send-to-readmill-small .send-to-readmill-popup {
+top: -26px;
+}
+
+/* Arrows */
+
+.send-to-readmill-right .send-to-readmill-popup {
+background: #fff;
+border: 1px solid #d9d9d9;
+}
+.send-to-readmill-right .send-to-readmill-popup::after, .send-to-readmill-right .send-to-readmill-popup::before {
+right: 100%;
+border: solid transparent;
+content: " ";
+height: 0;
+width: 0;
+position: absolute;
+pointer-events: none;
+z-index: 10000;
+}
+.send-to-readmill-right .send-to-readmill-popup::after {
+border-right-color: #fff;
+border-width: 4px;
+top: 50%;
+margin-top: -4px;
+}
+.send-to-readmill-right .send-to-readmill-popup::before {
+border-right-color: #c9c9c9; /* use darker grey than #d9d9d9 to compensate for lack of dropshadow */
+border-width: 5px;
+top: 50%;
+margin-top: -5px;
+}
+.send-to-readmill-top .send-to-readmill-popup {
+background: #fff;
+border: 1px solid #d9d9d9;
+}
+.send-to-readmill-top .send-to-readmill-popup::after, .send-to-readmill-top .send-to-readmill-popup::before {
+top: 100%;
+border: solid transparent;
+content: " ";
+height: 0;
+width: 0;
+position: absolute;
+pointer-events: none;
+}
+.send-to-readmill-top .send-to-readmill-popup::after {
+border-top-color: #fff;
+border-width: 4px;
+left: 50%;
+margin-left: -4px;
+}
+.send-to-readmill-top .send-to-readmill-popup::before {
+border-top-color: #c9c9c9;
+border-width: 5px;
+left: 50%;
+margin-left: -5px;
+}
+.send-to-readmill-left .send-to-readmill-popup {
+background: #fff;
+border: 1px solid #d9d9d9;
+}
+.send-to-readmill-left .send-to-readmill-popup::after, .send-to-readmill-left .send-to-readmill-popup::before {
+left: 100%;
+border: solid transparent;
+content: " ";
+height: 0;
+width: 0;
+position: absolute;
+pointer-events: none;
+}
+.send-to-readmill-left .send-to-readmill-popup::after {
+border-left-color: #fff;
+border-width: 4px;
+top: 50%;
+margin-top: -4px;
+}
+.send-to-readmill-left .send-to-readmill-popup::before {
+border-left-color: #c9c9c9;
+border-width: 5px;
+top: 50%;
+margin-top: -5px;
+}
+.send-to-readmill-bottom .send-to-readmill-popup {
+background: #fff;
+border: 1px solid #d9d9d9;
+}
+.send-to-readmill-bottom .send-to-readmill-popup::after, .send-to-readmill-bottom .send-to-readmill-popup::before {
+bottom: 100%;
+border: solid transparent;
+content: " ";
+height: 0;
+width: 0;
+position: absolute;
+pointer-events: none;
+}
+.send-to-readmill-bottom .send-to-readmill-popup::after {
+border-bottom-color: #fff;
+border-width: 4px;
+left: 50%;
+margin-left: -4px;
+}
+.send-to-readmill-bottom .send-to-readmill-popup::before {
+border-bottom-color: #c9c9c9;
+border-width: 5px;
+left: 50%;
+margin-left: -5px;
+}
+</style><style type="text/css" media="all" class="ic_intercom_activator">#IntercomDefaultWidget,#IntercomDefaultWidget span,#IntercomDefaultWidget em{alignment-adjust:auto;alignment-baseline:baseline;-webkit-animation:none 0 ease 0 1 normal;-moz-animation:none 0 ease 0 1 normal;-ms-animation:none 0 ease 0 1 normal;animation:none 0 ease 0 1 normal;-webkit-animation-play-state:running;-moz-play-state:running;-ms-animation-play-state:running;animation-play-state:running;appearance:normal;azimuth:center;backface-visibility:visible;background:none 0 0 auto repeat scroll padding-box transparent;background-color:transparent;background-image:none;baseline-shift:baseline;binding:none;bleed:6pt;bookmark-label:content();bookmark-level:none;bookmark-state:open;bookmark-target:none;border:0 none transparent;-webkit-border-radius:0;-moz-border-radius:0;border-radius:0;bottom:auto;box-align:stretch;box-decoration-break:slice;box-direction:normal;box-flex:0.0;box-flex-group:1;box-lines:single;box-ordinal-group:1;box-orient:inline-axis;box-pack:start;-webkit-box-shadow:none;-moz-box-shadow:none;box-shadow:none;-webkit-box-sizing:content-box;-moz-box-sizing:content-box;box-sizing:content-box;break-after:auto;break-before:auto;break-inside:auto;caption-side:top;clear:none;clip:auto;color:inherit;color-profile:auto;-webkit-column-count:auto;-webkit-column-fill:balance;-webkit-column-gap:normal;-webkit-column-rule:medium medium #1f1f1f;-webkit-column-span:1;-webkit-column-width:auto;-webkit-columns:auto auto;-moz-column-count:auto;-moz-column-fill:balance;-moz-column-gap:normal;-moz-column-rule:medium medium #1f1f1f;-moz-column-span:1;-moz-column-width:auto;-moz-columns:auto auto;column-count:auto;column-fill:balance;column-gap:normal;column-rule:medium medium #1f1f1f;column-span:1;column-width:auto;columns:auto auto;content:normal;counter-increment:none;counter-reset:none;crop:auto;cursor:auto;direction:ltr;display:inline;dominant-baseline:auto;drop-initial-after-adjust:text-after-edge;drop-initial-after-align:baseline;drop-initial-before-adjust:text-before-edge;drop-initial-before-align:caps-height;drop-initial-size:auto;drop-initial-value:initial;elevation:level;empty-cells:show;fit:fill;fit-position:0% 0%;float:none;float-offset:0 0;font-family:"Helvetica Neue", Arial, sans-serif;font-size-adjust:none;font-size:100%;font-stretch:normal;font-style:normal;font-variant:normal;font-weight:normal;font:inherit;grid-columns:none;grid-rows:none;hanging-punctuation:none;height:auto;hyphenate-after:auto;hyphenate-before:auto;hyphenate-character:auto;hyphenate-lines:no-limit;hyphenate-resource:none;hyphens:manual;icon:auto;image-orientation:auto;image-rendering:auto;image-resolution:normal;inline-box-align:last;left:auto;letter-spacing:normal;line-height:inherit;line-stacking:inline-line-height exclude-ruby consider-shifts;list-style:disc outside none;margin:0;marks:none;marquee-direction:forward;marquee-loop:1;marquee-play-count:1;marquee-speed:normal;marquee-style:scroll;max-height:none;max-width:none;min-height:0;min-width:0;move-to:normal;nav-down:auto;nav-index:auto;nav-left:auto;nav-right:auto;nav-up:auto;opacity:1;orphans:2;outline:invert none medium;outline-offset:0;overflow:visible;overflow-style:auto;padding:0;page:auto;page-break-after:auto;page-break-before:auto;page-break-inside:auto;page-policy:start;perspective:none;perspective-origin:50% 50%;position:static;presentation-level:0;punctuation-trim:none;quotes:none;rendering-intent:auto;resize:none;right:auto;rotation:0;rotation-point:50% 50%;ruby-align:auto;ruby-overhang:none;ruby-position:before;ruby-span:none;size:auto;string-set:none;table-layout:auto;text-align:left;text-align-last:start;text-decoration:none;text-emphasis:none;text-height:auto;text-indent:0;text-justify:auto;text-outline:none;text-shadow:none;text-transform:none;text-wrap:normal;top:auto;-webkit-transform:none;-moz-transform:none;transform:none;-webkit-transform-origin:50% 50%;-moz-transform-origin:50% 50%;-o-transform-origin:50% 50%;transform-origin:50% 50% 0;transform-style:flat;-webkit-transition:all 0 ease 0;-moz-transition:all 0 ease 0;-o-transition:all 0 ease 0;transition:all 0 ease 0;unicode-bidi:normal;vertical-align:baseline;visibility:visible;white-space:normal;white-space-collapse:collapse;widows:2;width:auto;word-break:normal;word-spacing:normal;word-wrap:normal;z-index:auto;-ms-filter:"progid:DXImageTransform.Microsoft.gradient(enabled=false)";filter:progid:DXImageTransform.Microsoft.gradient(enabled=false)}#IntercomDefaultWidget{font-family:"Helvetica Neue", Arial, sans-serif;width:40px;height:40px;border:1px solid #660800;background-color:#b22215;-webkit-border-radius:3px;border-radius:3px;-moz-background-clip:padding;-webkit-background-clip:padding-box;background-clip:padding-box;position:fixed;right:20px;bottom:20px;z-index:2147483646;color:#fff;cursor:pointer}#IntercomDefaultWidget.ic_disabled,body.disable_intercom_widget #IntercomDefaultWidget{display:none}#IntercomDefaultWidget span{width:40px;height:39px;border-top:1px solid #db3223;background:transparent url(https://static.intercomcdn.com/assets/message-box-sprites-52b6df2806c84dcdfb1b742925a248ab.png) no-repeat -152px 0;background-size:274px 48px;display:block;text-indent:100%;white-space:nowrap;overflow:hidden;-webkit-border-radius:3px;border-radius:3px;cursor:pointer}#IntercomDefaultWidget em{position:absolute;right:-4px;top:-4px;border:1px solid #570404;background-color:#cb1f0d;height:13px;width:13px;-webkit-border-radius:2px;border-radius:2px}#IntercomDefaultWidget em span,#IntercomDefaultWidget:hover em span{width:100%;text-align:center;height:12px;display:block;border-top-color:#e45f52;background-image:none;font-style:normal;line-height:12px;font-size:9px;text-indent:0;-webkit-border-radius:0;border-radius:0}#IntercomDefaultWidget:hover{background-color:#d32516}#IntercomDefaultWidget:hover span{border-top-color:#ec4b3c;background-position:-192px 0}
+</style><style type="text/css" media="all" class="ic_intercom">#IModal div,#IModal span,#IModal applet,#IModal object,#IModal iframe,#IModal h1,#IModal h2,#IModal h3,#IModal h4,#IModal h5,#IModal h6,#IModal p,#IModal blockquote,#IModal pre,#IModal a,#IModal abbr,#IModal acronym,#IModal address,#IModal big,#IModal cite,#IModal code,#IModal del,#IModal dfn,#IModal em,#IModal img,#IModal ins,#IModal kbd,#IModal q,#IModal s,#IModal samp,#IModal small,#IModal strike,#IModal strong,#IModal sub,#IModal sup,#IModal tt,#IModal var,#IModal b,#IModal u,#IModal i,#IModal center,#IModal dl,#IModal dt,#IModal dd,#IModal ol,#IModal ul,#IModal li,#IModal fieldset,#IModal form,#IModal label,#IModal legend,#IModal table,#IModal caption,#IModal tbody,#IModal tfoot,#IModal thead,#IModal tr,#IModal th,#IModal td,#IModal article,#IModal aside,#IModal canvas,#IModal details,#IModal figcaption,#IModal figure,#IModal #IModal footer,#IModal header,#IModal hgroup,#IModal menu,#IModal nav,#IModal section,#IModal summary,#IModal time,#IModal mark,#IModal audio,#IModal video,#IModal button,#IModal textarea,#IModal input,#IModal,#IModalOverlay,#INotificationMessagesWrapper,#INotificationMessagesWrapper div,#INotificationMessagesWrapper h1,#INotificationMessagesWrapper h4,#INotificationMessagesWrapper p,#INotificationMessagesWrapper a,#INotificationMessagesWrapper form{alignment-adjust:auto;alignment-baseline:baseline;-webkit-animation:none 0 ease 0 1 normal;-moz-animation:none 0 ease 0 1 normal;-ms-animation:none 0 ease 0 1 normal;animation:none 0 ease 0 1 normal;-webkit-animation-play-state:running;-moz-play-state:running;-ms-animation-play-state:running;animation-play-state:running;appearance:normal;azimuth:center;backface-visibility:visible;background:none 0 0 auto repeat scroll padding-box transparent;background-color:transparent;background-image:none;baseline-shift:baseline;binding:none;bleed:6pt;bookmark-label:content();bookmark-level:none;bookmark-state:open;bookmark-target:none;border:0 none transparent;-webkit-border-radius:0;-moz-border-radius:0;border-radius:0;bottom:auto;box-align:stretch;box-decoration-break:slice;box-direction:normal;box-flex:0.0;box-flex-group:1;box-lines:single;box-ordinal-group:1;box-orient:inline-axis;box-pack:start;-webkit-box-shadow:none;-moz-box-shadow:none;box-shadow:none;-webkit-box-sizing:content-box;-moz-box-sizing:content-box;box-sizing:content-box;break-after:auto;break-before:auto;break-inside:auto;caption-side:top;clear:none;clip:auto;color:inherit;color-profile:auto;-webkit-column-count:auto;-webkit-column-fill:balance;-webkit-column-gap:normal;-webkit-column-rule:medium medium #1f1f1f;-webkit-column-span:1;-webkit-column-width:auto;-webkit-columns:auto auto;-moz-column-count:auto;-moz-column-fill:balance;-moz-column-gap:normal;-moz-column-rule:medium medium #1f1f1f;-moz-column-span:1;-moz-column-width:auto;-moz-columns:auto auto;column-count:auto;column-fill:balance;column-gap:normal;column-rule:medium medium #1f1f1f;column-span:1;column-width:auto;columns:auto auto;content:normal;counter-increment:none;counter-reset:none;crop:auto;cursor:auto;direction:ltr;display:inline;dominant-baseline:auto;drop-initial-after-adjust:text-after-edge;drop-initial-after-align:baseline;drop-initial-before-adjust:text-before-edge;drop-initial-before-align:caps-height;drop-initial-size:auto;drop-initial-value:initial;elevation:level;empty-cells:show;fit:fill;fit-position:0% 0%;float:none;float-offset:0 0;font-family:"Helvetica Neue", Arial, sans-serif;font-size-adjust:none;font-size:100%;font-stretch:normal;font-style:normal;font-variant:normal;font-weight:normal;font:normal normal 100% "Helvetica Neue", Arial, sans-serif;grid-columns:none;grid-rows:none;hanging-punctuation:none;height:auto;hyphenate-after:auto;hyphenate-before:auto;hyphenate-character:auto;hyphenate-lines:no-limit;hyphenate-resource:none;hyphens:manual;icon:auto;image-orientation:auto;image-rendering:auto;image-resolution:normal;inline-box-align:last;left:auto;letter-spacing:normal;line-height:inherit;line-stacking:inline-line-height exclude-ruby consider-shifts;list-style:disc outside none;margin:0;marks:none;marquee-direction:forward;marquee-loop:1;marquee-play-count:1;marquee-speed:normal;marquee-style:scroll;max-height:none;max-width:none;min-height:0;min-width:0;move-to:normal;nav-down:auto;nav-index:auto;nav-left:auto;nav-right:auto;nav-up:auto;opacity:1;orphans:2;outline:invert none medium;outline-offset:0;overflow:visible;overflow-style:auto;padding:0;page:auto;page-break-after:auto;page-break-before:auto;page-break-inside:auto;page-policy:start;perspective:none;perspective-origin:50% 50%;position:static;presentation-level:0;punctuation-trim:none;quotes:none;rendering-intent:auto;resize:none;right:auto;rotation:0;rotation-point:50% 50%;ruby-align:auto;ruby-overhang:none;ruby-position:before;ruby-span:none;size:auto;string-set:none;table-layout:auto;text-align:left;text-align-last:start;text-decoration:none;text-emphasis:none;text-height:auto;text-indent:0;text-justify:auto;text-outline:none;text-shadow:none;text-transform:none;text-wrap:normal;top:auto;-webkit-transform:none;-moz-transform:none;transform:none;-webkit-transform-origin:50% 50%;-moz-transform-origin:50% 50%;-o-transform-origin:50% 50%;transform-origin:50% 50% 0;transform-style:flat;-webkit-transition:all 0 ease 0;-moz-transition:all 0 ease 0;-o-transition:all 0 ease 0;transition:all 0 ease 0;unicode-bidi:normal;vertical-align:baseline;visibility:visible;white-space:normal;white-space-collapse:collapse;widows:2;width:auto;word-break:normal;word-spacing:normal;word-wrap:normal;z-index:auto;-ms-filter:"progid:DXImageTransform.Microsoft.gradient(enabled=false)";filter:progid:DXImageTransform.Microsoft.gradient(enabled=false)}#IModal address,#IModal blockquote,#IModal dd,#IModal div,#IModal dl,#IModal dt,#IModal fieldset,#IModal form,#IModal frame,#IModal frameset,#IModal h1,#IModal h2,#IModal h3,#IModal h4,#IModal h5,#IModal h6,#IModal noframes,#IModal ol,#IModal p,#IModal ul,#IModal center,#IModal dir,#IModal hr,#IModal menu,#IModal pre,#IModal article,#IModal aside,#IModal canvas,#IModal details,#IModal figcaption,#IModal figure,#IModal footer,#IModal header,#IModal hgroup,#IModal menu,#IModal nav,#IModal section,#IModal summary{display:block}#IModal li{display:list-item}#IModal table{display:table}#IModal tr{display:table-row}#IModal thead{display:table-header-group}#IModal tbody{display:table-row-group}#IModal tfoot{display:table-footer-group}#IModal col{display:table-column}#IModal colgroup{display:table-column-group}#IModal td,#IModal th{display:table-cell}#IModal caption{display:table-caption}#IModal input,#IModal select{display:inline-block}#IModal a:link,#IModal a:visited,#IModal a:hover,#IModal a:active{color:inherit;background:transparent}#IModal textarea,#IModal input{cursor:text}#IModal input[type=checkbox],#IModal input[type=radio]{cursor:default}#IModal a,#IModal a *,#IModal a span,#IModal button,#IModal button *,#IModal button span,#IModal input[type=submit],#IModal input[type=reset]{cursor:pointer}#IModal button::-moz-focus-inner{border:0;padding:0}#IntercomBindingPoint{display:none !important}#IModal{position:fixed;display:none;z-index:2147483001;opacity:0;left:50%;top:50%;font-family:"Helvetica Neue",Arial,sans-serif;font-size:14px;line-height:22px;color:#272727;background-color:#fff}#IModalOverlay{position:fixed;top:0;left:0;bottom:0;width:100%;display:none;z-index:2147483000}#IModal .ic_pane{display:none}#IModal #IntercomMessageListView{display:block}#IModal.ic_view_message #IntercomMessageListView,#IModal.ic_view_new_message #IntercomMessageListView{display:none}#IModal.ic_view_message #IntercomMessageViewContainer,#IModal.ic_view_new_message #IntercomNewMessageContainer{display:block}#IModal #IntercomMessageListView.ic_loading div.ic_table_wrapper{background:transparent url(https://static.intercomcdn.com/assets/message-box-loader-70ce371edcda81c7ba12a208581f3d43.gif) no-repeat 50% 50%}#IModal #IntercomMessageListView.ic_loading div.ic_table_wrapper table{opacity:0.25}#IModal .ic_header,#INotificationMessagesWrapper .ic_avatar_wrapper{position:relative;color:#272727;background-color:#f6f6f6;background-image:-webkit-gradient(linear, left top, left bottom, from(#f6f6f6), to(#eaeaea));background-image:-webkit-linear-gradient(top, #f6f6f6, #eaeaea);background-image:-moz-linear-gradient(top, #f6f6f6, #eaeaea);background-image:-o-linear-gradient(top, #f6f6f6, #eaeaea);background-image:linear-gradient(to bottom, #f6f6f6,#eaeaea)}#IModal .ic_header{height:75px;border-bottom:1px solid #959595;-webkit-box-shadow:0px 1px 0px 0px #dcdcdc;box-shadow:0px 1px 0px 0px #dcdcdc}#IModal .ic_header .ic_color_tab{position:absolute;top:0;left:0;height:4px;width:100%;border:1px solid #660800;background-color:#b22215;-webkit-border-radius:3px 3px 0 0;border-radius:3px 3px 0 0;-moz-background-clip:border;-webkit-background-clip:border-box;background-clip:border-box}#IModal .ic_header .ic_color_tab:after{position:absolute;height:1px;left:2px;right:2px;background-color:#db3223;content:" ";overflow:hidden;border-width:0;top:0}#IModal .ic_header h1{position:absolute;top:28px;left:10px;width:547px;text-shadow:0 1px 0 #fff}#IModal .ic_header.ic_has_avatar h1{left:70px;width:487px}#IModal .ic_header .ic_avatar,#INotificationMessagesWrapper .ic_avatar{position:absolute;width:50px;height:50px;-webkit-border-radius:24.75px;border-radius:24.75px;-webkit-box-shadow:0 1px 0 #fff;box-shadow:0 1px 0 #fff}#IModal .ic_header .ic_avatar,#INotificationMessagesWrapper .ic_notification_message .ic_avatar{display:block;left:10px;top:15px}#INotificationMessagesWrapper .ic_notification_message .ic_avatar{left:10px}#IModal .ic_header h1 strong{font-weight:bold}#IModal .ic_header a,#INotificationMessagesWrapper a.ic_close_notification,#INotificationMessagesWrapper a.ic_reply_to_notification{position:absolute;top:27px;right:32px;height:24px;width:24px;display:block}#IModal .ic_header a span,#INotificationMessagesWrapper a.ic_close_notification span,#INotificationMessagesWrapper a.ic_reply_to_notification span{height:24px;width:24px;text-indent:100%;white-space:nowrap;overflow:hidden;display:block}#IModal .ic_header a.ic_back span,#IModal .ic_header a.ic_new_message span,#IModal .ic_header a.ic_close_modal span,#IModal #IntercomNewMessageContainer form button span,#IModal #IntercomMessageViewContainer form button span,#IModal #IntercomMessageViewContainer .ic_messages_wrapper>ul.ic_comments>li>blockquote>div.ic_message_attachments strong,#INotificationMessagesWrapper a.ic_close_notification span,#INotificationMessagesWrapper a.ic_reply_to_notification span,#INotificationMessagesWrapper .ic_notification_inline_composer form button span{background:transparent url(https://static.intercomcdn.com/assets/message-box-sprites-52b6df2806c84dcdfb1b742925a248ab.png) no-repeat 0 0;background-size:274px 48px}#IModal .ic_header a.ic_close_modal{right:3px}#IModal .ic_header a.ic_close_modal span,#INotificationMessagesWrapper a.ic_close_notification span{background-position:-24px 0}#IModal .ic_header a.ic_new_message span{background-position:-48px 0}#IModal .ic_header a.ic_back:hover span{background-position:0 -24px}#IModal .ic_header a.ic_close_modal:hover span,#INotificationMessagesWrapper a.ic_close_notification:hover span{background-position:-24px -24px}#IModal .ic_header a.ic_new_message:hover span{background-position:-48px -24px}#INotificationMessagesWrapper a.ic_reply_to_notification span{background-position:-250px 0}#INotificationMessagesWrapper a.ic_reply_to_notification:hover span{background-position:-250px -24px}#IModal #IntercomMessageListView table{width:100%;font-size:12px}#IModal #IntercomMessageListView table a{color:#272727}#IModal #IntercomMessageListView table tr:hover a{background-color:#f8f8f8}#IModal #IntercomMessageListView.ic_loading table tr:hover a{background-color:#fff}#IModal #IntercomMessageListView table th.ic_user a{padding-left:50px;padding-right:10px;position:relative;color:#686868}#IModal #IntercomMessageListView table .ic_unread th.ic_user a{color:#272727}#IModal #IntercomMessageListView table th.ic_user a img{width:30px;height:30px;top:10px;left:10px;position:absolute;-webkit-border-radius:15px;border-radius:15px;-moz-background-clip:padding;-webkit-background-clip:padding-box;background-clip:padding-box}#IModal #IntercomMessageListView table td.ic_time{font-size:11px}#IModal #IntercomMessageListView table td.ic_time a{padding-right:10px;text-align:right}#IModal #IntercomMessageListView table th,#IModal #IntercomMessageListView table td{border-bottom:1px solid #c5c5c5;vertical-align:top}#IModal #IntercomMessageListView table th a,#IModal #IntercomMessageListView table td a{padding:14px 0;display:block}#IModal #IntercomMessageListView table .ic_unread th,#IModal #IntercomMessageListView table .ic_unread td{font-weight:bold}#IModal #IntercomMessageListView table .ic_unread th a,#IModal #IntercomMessageListView table .ic_unread th span,#IModal #IntercomMessageListView table .ic_unread td a,#IModal #IntercomMessageListView table .ic_unread td span{font-weight:bold}#IModal #IntercomMessageViewContainer .ic_messages_wrapper{padding:10px 10px 0;border-bottom:1px solid #a6a6a6;background-color:#fff}#IModal #IntercomMessageViewContainer .ic_messages_wrapper>ul.ic_comments,#IModal.ic_ie7 #IntercomMessageViewContainer .ic_messages_wrapper ul.ic_comments{list-style-type:none}#IModal #IntercomMessageViewContainer .ic_messages_wrapper>ul.ic_comments>li,#IModal.ic_ie7 #IntercomMessageViewContainer .ic_messages_wrapper ul.ic_comments li{list-style-type:none;padding:0 0 11px}#IModal #IntercomMessageViewContainer .ic_messages_wrapper>ul.ic_comments>li.ic_uploading,#IModal.ic_ie7 #IntercomMessageViewContainer .ic_messages_wrapper ul.ic_comments li.ic_uploading{opacity:0.5}#IModal #IntercomMessageViewContainer .ic_messages_wrapper>ul.ic_comments>li>blockquote,#IModal.ic_ie7 #IntercomMessageViewContainer .ic_messages_wrapper ul.ic_comments li blockquote.ic_comment_body{border:1px solid #979797;background:#f8f8f8;position:relative;-webkit-border-radius:3px;border-radius:3px;-moz-background-clip:padding;-webkit-background-clip:padding-box;background-clip:padding-box;padding:13px 20px 8px}#IModal #IntercomMessageViewContainer .ic_messages_wrapper>ul.ic_comments>li.ic_user_response>blockquote,#IModal.ic_ie7 #IntercomMessageViewContainer .ic_messages_wrapper ul.ic_comments li.ic_user_response blockquote.ic_comment_body{border-color:#757575;background:#d7d7d7}#IModal #IntercomMessageViewContainer .ic_messages_wrapper>ul.ic_comments>li>blockquote:after{position:absolute;height:1px;top:0;left:1px;right:1px;content:" ";overflow:hidden;display:block;border-width:0;background-color:#fff;background-color:rgba(255,255,255,0.5)}#IModal #IntercomMessageViewContainer .ic_messages_wrapper>ul.ic_comments>li>blockquote>div.ic_message_attachments{font-size:11px;border-top:1px solid #d7d7d7;margin:0 -20px 0;padding:9px 20px 5px}#IModal #IntercomMessageViewContainer .ic_messages_wrapper>ul.ic_comments>li.ic_user_response>blockquote>div.ic_message_attachments{border-top-color:#b1b1b1}#IModal #IntercomMessageViewContainer .ic_messages_wrapper>ul.ic_comments>li>blockquote>div.ic_message_attachments strong{display:inline-block;height:18px;width:18px;background:transparent url(https://static.intercomcdn.com/assets/message-box-sprites-52b6df2806c84dcdfb1b742925a248ab.png) no-repeat -232px 0;overflow:hidden;margin:0 7px 0 0;text-indent:100%;white-space:nowrap;overflow:hidden}#IModal #IntercomMessageViewContainer .ic_messages_wrapper>ul.ic_comments>li.ic_user_response>blockquote>div.ic_message_attachments a:after{content:", "}#IModal #IntercomMessageViewContainer .ic_messages_wrapper>ul.ic_comments>li.ic_user_response>blockquote>div.ic_message_attachments a:last-child:after{content:""}#IModal #IntercomMessageViewContainer .ic_messages_wrapper>ul.ic_comments>li div.ic_user,#IModal.ic_ie7 #IntercomMessageViewContainer .ic_messages_wrapper ul.ic_comments li div.ic_user{font-size:12px;font-weight:bold;padding:14px 0 2px;position:relative;color:#272727}#IModal #IntercomMessageViewContainer .ic_messages_wrapper>ul.ic_comments>li div.ic_user:before{position:absolute;left:20px;top:-2px;display:block;content:" ";overflow:hidden;width:0;height:0;border-left:7px solid transparent;border-right:7px solid transparent;border-top:9px solid #f8f8f8;z-index:2147483011}#IModal #IntercomMessageViewContainer .ic_messages_wrapper>ul.ic_comments>li.ic_user_response div.ic_user:before{border-top-color:#d7d7d7}#IModal #IntercomMessageViewContainer .ic_messages_wrapper>ul.ic_comments>li div.ic_user:after{position:absolute;left:20px;top:-1px;display:block;content:" ";overflow:hidden;width:0;height:0;border-left:7px solid transparent;border-right:7px solid transparent;border-top:9px solid #979797;z-index:2147483010}#IModal #IntercomMessageViewContainer .ic_messages_wrapper>ul.ic_comments>li.ic_user_response div.ic_user:after{border-top-color:#757575}#IModal #IntercomMessageViewContainer .ic_messages_wrapper>ul.ic_comments>li div.ic_user span.ic_delivered,#IModal.ic_ie7 #IntercomMessageViewContainer .ic_messages_wrapper ul.ic_comments li div.ic_user span.ic_delivered{padding-left:9px;color:#686868;font-weight:normal;position:absolute;top:14px;right:0}#IModal #IntercomMessageViewContainer .ic_messages_wrapper>ul.ic_comments>li div.ic_has_avatar{padding-left:30px}#IModal #IntercomMessageViewContainer .ic_messages_wrapper>ul.ic_comments>li div.ic_has_avatar img,#IModal.ic_ie7 #IntercomMessageViewContainer .ic_messages_wrapper ul.ic_comments li div.ic_has_avatar img{width:25px;height:25px;position:absolute;top:13px;left:0;-webkit-border-radius:12.5px;border-radius:12.5px;-moz-background-clip:padding;-webkit-background-clip:padding-box;background-clip:padding-box}#IModal #IntercomMessageViewContainer{background-color:#e1e1e1}#IModal #IntercomMessageViewContainer form{border-top:1px solid #cecece}#IModal #IntercomNewMessageContainer form textarea,#IModal #IntercomMessageViewContainer form textarea{border:1px solid #989898;background:#fdf5e0;-webkit-border-radius:3px;border-radius:3px;-moz-background-clip:padding;-webkit-background-clip:padding-box;background-clip:padding-box;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;width:92%;font-size:12px;line-height:18px;padding:10px 9px;color:#1e1e1e;display:block;-webkit-box-shadow:0px 1px 0px 0px #f2f2f2;box-shadow:0px 1px 0px 0px #f2f2f2;white-space:pre-wrap}#IModal #IntercomNewMessageContainer form button,#IModal #IntercomMessageViewContainer form button,#INotificationMessagesWrapper .ic_notification_inline_composer form button{width:40px;height:40px;border:1px solid #660800;background:#b22215;-webkit-border-radius:3px;border-radius:3px;display:block;overflow:hidden;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}#IModal #IntercomNewMessageContainer form button span,#IModal #IntercomMessageViewContainer form button span,#INotificationMessagesWrapper .ic_notification_inline_composer form button span{text-indent:100%;white-space:nowrap;overflow:hidden;height:39px;width:40px;border-top:1px solid #db3223;display:block;background-position:-72px 0}#IModal #IntercomNewMessageContainer form button span,#INotificationMessagesWrapper .ic_notification_inline_composer form button span{background-position:-112px 0}#IModal #IntercomNewMessageContainer form button:hover,#IModal #IntercomMessageViewContainer form button:hover,#INotificationMessagesWrapper .ic_notification_inline_composer form button:hover{background-color:#d32516}#IModal #IntercomNewMessageContainer form button:hover span,#IModal #IntercomMessageViewContainer form button:hover span,#INotificationMessagesWrapper .ic_notification_inline_composer form button:hover span{border-top-color:#ec4b3c}#IModal #IntercomNewMessageContainer{background:#e1e1e1}#IModal #IntercomNewMessageContainer form{padding:9px}#IModal #IntercomMessageViewContainer form.ic_sending button,#IModal #IntercomNewMessageContainer form.ic_sending button{opacity:0.25}#IModal.intercom #IntercomMessageView div.ic_message blockquote{font-size:13px;color:#272727;padding:5px 0 3px}#IModal.intercom #IntercomMessageView blockquote a,#INotificationMessagesWrapper .ic_message_body a{color:#b22215;text-decoration:underline}#IModal.intercom #IntercomMessageView blockquote a:hover,#INotificationMessagesWrapper .ic_message_body a:hover{text-decoration:none}#IModal.intercom #IntercomMessageView div.ic_message blockquote p{padding:0 0 10px;font-size:13px}#IModal.intercom #IntercomMessageView div.ic_message blockquote h1,#IModal.intercom #IntercomMessageView div.ic_message blockquote h2,#IModal.intercom #IntercomMessageView div.ic_message blockquote h3,#IModal.intercom #IntercomMessageView div.ic_message blockquote h4,#IModal.intercom #IntercomMessageView div.ic_message blockquote h5,#IModal.intercom #IntercomMessageView div.ic_message blockquote h6,#IModal.intercom #IntercomMessageView div.ic_message blockquote p,#IModal.intercom #IntercomMessageView div.ic_message blockquote blockquote,#IModal.intercom #IntercomMessageView div.ic_message blockquote pre,#IModal.intercom #IntercomMessageView div.ic_message blockquote ul,#IModal.intercom #IntercomMessageView div.ic_message blockquote ol,#IModal.intercom #IntercomMessageView div.ic_message blockquote li,#IModal.intercom #IntercomMessageView div.ic_message blockquote dl,#IModal.intercom #IntercomMessageView div.ic_message blockquote dt,#IModal.intercom #IntercomMessageView div.ic_message blockquote dd,#IModal.intercom #IntercomMessageView div.ic_message blockquote form,#IModal.intercom #IntercomMessageView div.ic_message blockquote div,#IModal.intercom #IntercomMessageView div.ic_message blockquote fieldset,#IModal.intercom #IntercomMessageView ul.ic_comments li blockquote h1,#IModal.intercom #IntercomMessageView ul.ic_comments li blockquote h2,#IModal.intercom #IntercomMessageView ul.ic_comments li blockquote h3,#IModal.intercom #IntercomMessageView ul.ic_comments li blockquote h4,#IModal.intercom #IntercomMessageView ul.ic_comments li blockquote h5,#IModal.intercom #IntercomMessageView ul.ic_comments li blockquote h6,#IModal.intercom #IntercomMessageView ul.ic_comments li blockquote p,#IModal.intercom #IntercomMessageView ul.ic_comments li blockquote blockquote,#IModal.intercom #IntercomMessageView ul.ic_comments li blockquote pre,#IModal.intercom #IntercomMessageView ul.ic_comments li blockquote ul,#IModal.intercom #IntercomMessageView ul.ic_comments li blockquote ol,#IModal.intercom #IntercomMessageView ul.ic_comments li blockquote li,#IModal.intercom #IntercomMessageView ul.ic_comments li blockquote dl,#IModal.intercom #IntercomMessageView ul.ic_comments li blockquote dt,#IModal.intercom #IntercomMessageView ul.ic_comments li blockquote dd,#IModal.intercom #IntercomMessageView ul.ic_comments li blockquote form,#IModal.intercom #IntercomMessageView ul.ic_comments li blockquote div,#IModal.intercom #IntercomMessageView ul.ic_comments li blockquote fieldset{display:block;line-height:22px}#IModal.intercom #IntercomMessageView div.ic_message blockquote h1,#IModal.intercom #IntercomMessageView div.ic_message blockquote h2,#IModal.intercom #IntercomMessageView div.ic_message blockquote h3,#IModal.intercom #IntercomMessageView div.ic_message blockquote h4,#IModal.intercom #IntercomMessageView div.ic_message blockquote h5,#IModal.intercom #IntercomMessageView div.ic_message blockquote h6,#IModal.intercom #IntercomMessageView div.ic_message blockquote p,#IModal.intercom #IntercomMessageView div.ic_message blockquote blockquote,#IModal.intercom #IntercomMessageView div.ic_message blockquote pre,#IModal.intercom #IntercomMessageView div.ic_message blockquote li,#IModal.intercom #IntercomMessageView div.ic_message blockquote dl,#IModal.intercom #IntercomMessageView div.ic_message blockquote form,#IModal.intercom #IntercomMessageView div.ic_message blockquote div,#IModal.intercom #IntercomMessageView div.ic_message blockquote fieldset{padding:0 0 10px}#IModal.intercom #IntercomMessageView ul.ic_comments li blockquote h1,#IModal.intercom #IntercomMessageView ul.ic_comments li blockquote h2,#IModal.intercom #IntercomMessageView ul.ic_comments li blockquote h3,#IModal.intercom #IntercomMessageView ul.ic_comments li blockquote h4,#IModal.intercom #IntercomMessageView ul.ic_comments li blockquote h5,#IModal.intercom #IntercomMessageView ul.ic_comments li blockquote h6,#IModal.intercom #IntercomMessageView ul.ic_comments li blockquote p,#IModal.intercom #IntercomMessageView ul.ic_comments li blockquote blockquote,#IModal.intercom #IntercomMessageView ul.ic_comments li blockquote pre,#IModal.intercom #IntercomMessageView ul.ic_comments li blockquote li,#IModal.intercom #IntercomMessageView ul.ic_comments li blockquote dl,#IModal.intercom #IntercomMessageView ul.ic_comments li blockquote form,#IModal.intercom #IntercomMessageView ul.ic_comments li blockquote div,#IModal.intercom #IntercomMessageView ul.ic_comments li blockquote fieldset{padding:0 0 5px}#IModal.intercom #IntercomMessageView div.ic_message blockquote h1,#IModal.intercom #IntercomMessageView ul.ic_comments li blockquote h1{font-size:18px;font-weight:bold;color:#272727;position:static;line-height:20px;text-shadow:none;text-align:left;padding-bottom:12px}#IModal.intercom #IntercomMessageView div.ic_message blockquote h2,#IModal.intercom #IntercomMessageView ul.ic_comments li blockquote h2{font-size:16px;font-weight:bold;color:#272727;line-height:20px;padding:1px 0 11px}#IModal.intercom #IntercomMessageView div.ic_message blockquote h3,#IModal.intercom #IntercomMessageView div.ic_message blockquote h4,#IModal.intercom #IntercomMessageView div.ic_message blockquote h5,#IModal.intercom #IntercomMessageView div.ic_message blockquote h6,#IModal.intercom #IntercomMessageView ul.ic_comments li blockquote h3,#IModal.intercom #IntercomMessageView ul.ic_comments li blockquote h4,#IModal.intercom #IntercomMessageView ul.ic_comments li blockquote h5,#IModal.intercom #IntercomMessageView ul.ic_comments li blockquote h6{font-size:13px;font-weight:bold}#IModal.intercom #IntercomMessageView div.ic_message blockquote ul,#IModal.intercom #IntercomMessageView div.ic_message blockquote ol,#IModal.intercom #IntercomMessageView ul.ic_comments li blockquote ul,#IModal.intercom #IntercomMessageView ul.ic_comments li blockquote ol{margin-left:2em}#IModal.ic_ie7 #IntercomMessageView div.ic_message blockquote ul,#IModal.ic_ie7 #IntercomMessageView div.ic_message blockquote ol,#IModal.ic_ie7 #IntercomMessageView ul.ic_comments li blockquote ul,#IModal.ic_ie7 #IntercomMessageView ul.ic_comments li blockquote ol{margin-left:0;padding-left:2em}#IModal.ic_ie7 #IntercomMessageView div.ic_message blockquote ul li,#IModal.ic_ie7 #IntercomMessageView div.ic_message blockquote ol li,#IModal.ic_ie7 #IntercomMessageView ul.ic_comments li blockquote ul li,#IModal.ic_ie7 #IntercomMessageView ul.ic_comments li blockquote ol li{vertical-align:middle;padding-bottom:0;margin-bottom:10px}#IModal.ic_ie7 #IntercomMessageView ul.ic_comments li blockquote ul li,#IModal.ic_ie7 #IntercomMessageView ul.ic_comments li blockquote ol li{margin-bottom:5px}#IModal.intercom #IntercomMessageView div.ic_message blockquote ul li,#IModal.intercom #IntercomMessageView ul.ic_comments li blockquote ul li,#IModal.intercom #IntercomMessageView div.ic_message blockquote ol li,#IModal.intercom #IntercomMessageView ul.ic_comments li blockquote ol li{display:list-item;border-top:0}#IModal.intercom #IntercomMessageView div.ic_message blockquote ul,#IModal.intercom #IntercomMessageView ul.ic_comments li blockquote ul,#IModal.intercom #IntercomMessageView div.ic_message blockquote ul li,#IModal.intercom #IntercomMessageView ul.ic_comments li blockquote ul li{list-style-type:disc}#IModal.intercom #IntercomMessageView div.ic_message blockquote ol,#IModal.intercom #IntercomMessageView ul.ic_comments li blockquote ol,#IModal.intercom #IntercomMessageView div.ic_message blockquote ol li,#IModal.intercom #IntercomMessageView ul.ic_comments li blockquote ol li{list-style-type:decimal}#IModal.intercom #IntercomMessageView div.ic_message blockquote table{margin:0 0 10px}#IModal.intercom #IntercomMessageView ul.ic_comments li blockquote table{margin:0 0 5px}#IModal.intercom #IntercomMessageView div.ic_message blockquote th,#IModal.intercom #IntercomMessageView ul.ic_comments li blockquote th{font-weight:bold}#IModal.intercom #IntercomMessageView div.ic_message blockquote code,#IModal.intercom #IntercomMessageView div.ic_message blockquote pre,#IModal.intercom #IntercomMessageView div.ic_message blockquote tt,#IModal.intercom #IntercomMessageView ul.ic_comments li blockquote code,#IModal.intercom #IntercomMessageView ul.ic_comments li blockquote pre,#IModal.intercom #IntercomMessageView ul.ic_comments li blockquote tt,#INotificationMessagesWrapper tt{font-family:Consolas, Monaco, Inconsolata, "Courier New", Courier, monospace;font-size:13px}#IModal.intercom #IntercomMessageView ul.ic_comments li blockquote code,#IModal.intercom #IntercomMessageView ul.ic_comments li blockquote pre,#IModal.intercom #IntercomMessageView ul.ic_comments li blockquote tt{font-size:11px}#IModal.intercom #IntercomMessageView div.ic_message blockquote pre,#IModal.intercom #IntercomMessageView ul.ic_comments li blockquote pre,#IModal.intercom #IntercomMessageView pre code,#IModal.intercom #IntercomMessageView pre span{white-space:pre;white-space:pre-wrap;word-wrap:break-word}#IModal.intercom #IntercomMessageView div.ic_message blockquote del,#IModal.intercom #IntercomMessageView div.ic_message blockquote strike,#IModal.intercom #IntercomMessageView ul.ic_comments li blockquote del,#IModal.intercom #IntercomMessageView ul.ic_comments li blockquote strike{text-decoration:line-through}#IModal.intercom #IntercomMessageView div.ic_message blockquote abbr,#IModal.intercom #IntercomMessageView div.ic_message blockquote acronym,#IModal.intercom #IntercomMessageView ul.ic_comments li blockquote abbr,#IModal.intercom #IntercomMessageView ul.ic_comments li blockquote acronym{border-bottom:1px dotted #626262}#IModal.intercom #IntercomMessageView div.ic_message blockquote b,#IModal.intercom #IntercomMessageView div.ic_message blockquote strong,#IModal.intercom #IntercomMessageView div.ic_message blockquote dt,#IModal.intercom #IntercomMessageView ul.ic_comments li blockquote b,#IModal.intercom #IntercomMessageView ul.ic_comments li blockquote strong,#IModal.intercom #IntercomMessageView ul.ic_comments li blockquote dt,#INotificationMessagesWrapper strong,#INotificationMessagesWrapper b{font-weight:bold}#IModal.intercom #IntercomMessageView div.ic_message blockquote i,#IModal.intercom #IntercomMessageView div.ic_message blockquote em,#IModal.intercom #IntercomMessageView ul.ic_comments li blockquote i,#IModal.intercom #IntercomMessageView ul.ic_comments li blockquote em,#INotificationMessagesWrapper em,#INotificationMessagesWrapper i{font-style:italic}#IModal.intercom #IntercomMessageView div.ic_message blockquote u,#IModal.intercom #IntercomMessageView ul.ic_comments li blockquote u,#INotificationMessagesWrapper u{text-decoration:underline}#IModal.intercom #IntercomMessageView ul.ic_comments li blockquote p{color:#272727;padding:0 0 5px;font-size:13px}#IModal.intercom #IntercomMessageView div.ic_message blockquote hr,#IModal.intercom #IntercomMessageView ul.ic_comments li blockquote hr{width:100%}#IModal.intercom #IntercomMessageView div.ic_message blockquote img,#IModal.intercom #IntercomMessageView ul.ic_comments li blockquote img{max-width:100%;display:block}#INotificationMessagesWrapper{position:fixed;top:20px;right:20px;width:395px;z-index:2147483647}#INotificationMessagesWrapper .ic_notification_message div.powered_by_intercom{display:none;float:right}#INotificationMessagesWrapper .ic_notification_message .ic_avatar_wrapper{width:70px;position:absolute;top:0;bottom:0;left:5px;border-right:1px solid #9c9c9c}#INotificationMessagesWrapper .ic_notification_message{position:relative;min-height:40px;border:1px solid #8c8c8c;padding:0;background-color:#fff;margin:0 0 20px;display:block;-webkit-border-radius:3px;border-radius:3px}#INotificationMessagesWrapper .ic_notification_message a{cursor:pointer}#INotificationMessagesWrapper .ic_has_avatar{padding-left:76px}#INotificationMessagesWrapper .ic_notification_message .ic_color_tab{position:absolute;top:-1px;left:-1px;width:4px;height:100%;border:1px solid #660800;background-color:#b22215;-webkit-border-radius:3px 0 0 3px;border-radius:3px 0 0 3px;-moz-background-clip:border;-webkit-background-clip:border-box;background-clip:border-box}#INotificationMessagesWrapper .ic_notification_message .ic_color_tab:after{position:absolute;width:1px;top:1px;bottom:1px;left:0;background-color:#db3223;content:" ";overflow:hidden;border-width:0}#INotificationMessagesWrapper{font-size:13px;line-height:16px;font-family:"Helvetica Neue", Arial, sans-serif}#INotificationMessagesWrapper .ic_message_body{display:table;height:31px;width:100%;color:#131313}#INotificationMessagesWrapper .ic_message_body h1,#INotificationMessagesWrapper .ic_message_body h2{font-weight:bold;color:#272727;font-size:14px;display:block;padding-bottom:4px}#INotificationMessagesWrapper .ic_message_body h2{font-size:13px;line-height:16px;padding:0;margin:0}#INotificationMessagesWrapper .ic_message_body p{display:block;padding-bottom:4px}.inline-message-preview #IModal.ic_has_placeholder_content .ic_message_body{display:none}#INotificationMessagesWrapper .ic_message_body .ic_content_wrapper{display:table-cell;vertical-align:middle}#INotificationMessagesWrapper a.ic_close_notification{top:3px;right:3px}#INotificationMessagesWrapper a.ic_reply_to_notification{top:23px;right:3px}#INotificationMessagesWrapper .ic_notification_inline_reply{display:block}#INotificationMessagesWrapper .ic_notification_message .ic_color_tab+.ic_notification_inline_reply{margin-left:5px}#INotificationMessagesWrapper .ic_message_body_wrapper{padding:17px 20px 12px 19px;display:block}#INotificationMessagesWrapper .ic_notification_inline_composer{background-color:#f2f2f2;padding:8px;display:block}#INotificationMessagesWrapper .ic_notification_inline_composer.ic_hidden{display:none}#INotificationMessagesWrapper .ic_notification_inline_composer .ic_hidden{display:none}#INotificationMessagesWrapper .ic_notification_inline_composer textarea{-moz-box-sizing:content-box;-webkit-box-sizing:content-box;height:18px;width:326px;background-color:#fff;margin:0;resize:none;border:1px solid #bcbcbc;border-radius:3px;font-family:"Helvetica Neue", Arial, sans-serif;font-size:13px;color:#111;padding:4px 36px 4px 8px;line-height:16px;overflow:hidden;outline:none;vertical-align:top;float:none}#INotificationMessagesWrapper .ic_notification_inline_composer textarea:focus{border-color:#8c8c8c}#INotificationMessagesWrapper .ic_notification_inline_composer textarea:focus+button{visibility:visible}#INotificationMessagesWrapper .ic_has_avatar .ic_notification_inline_composer textarea{width:255px}#INotificationMessagesWrapper .ic_notification_inline_composer form{margin:0}#INotificationMessagesWrapper .ic_notification_inline_composer form button,#INotificationMessagesWrapper .ic_notification_inline_composer .activity_indicator{position:absolute;right:11px;bottom:11px;width:22px;height:22px;overflow:hidden}#INotificationMessagesWrapper .ic_notification_inline_composer form button{padding:0}#INotificationMessagesWrapper .ic_notification_inline_composer form button.ic_visuallyhidden{visibility:hidden}#INotificationMessagesWrapper .ic_notification_inline_composer form button span{padding:0;height:22px;width:22px;background-position:-122px -9px;text-indent:-9999px}#INotificationMessagesWrapper .ic_notification_inline_feedback{padding:8px 20px 8px 19px;background-color:#757575;display:block;color:#fff;line-height:20px;min-height:20px}#INotificationMessagesWrapper .ic_notification_inline_feedback.ic_hidden{display:none}#INotificationMessagesWrapper .ic_notification_inline_feedback span{float:left}#INotificationMessagesWrapper .ic_notification_inline_feedback a{color:#fff}#INotificationMessagesWrapper.ic_ie7 .ic_notification_inline_composer form button{bottom:31px}#INotificationMessagesWrapper.ic_ie7 .ic_notification_inline_composer form button span{background-position:-122px -11px}@media only screen and (-webkit-min-device-pixel-ratio: 1.5){#IModal .ic_header a.ic_back span,#IModal .ic_header a.ic_new_message span,#IModal .ic_header a.ic_close_modal span,#IModal #IntercomNewMessageContainer form button span,#IModal #IntercomMessageViewContainer form button span,#IntercomDefaultWidget span,#IModal #IntercomMessageViewContainer .ic_messages_wrapper>ul.ic_comments>li>blockquote>div.ic_message_attachments strong,#INotificationMessagesWrapper a.ic_close_notification span,#INotificationMessagesWrapper a.ic_reply_to_notification span,#INotificationMessagesWrapper .ic_notification_inline_composer form button span{background-image:url(https://static.intercomcdn.com/assets/message-box-sprites-2x-e208aaf4f0033df3bb22295d210991f2.png)}}#IModal.ic_ie7 #IntercomNewMessageContainer form textarea,#IModal.ic_ie8 #IntercomNewMessageContainer form textarea,#IModal.ic_ie9 #IntercomNewMessageContainer form textarea,#IModal.ic_ie7 #IntercomMessageViewContainer form textarea,#IModal.ic_ie8 #IntercomMessageViewContainer form textarea,#IModal.ic_ie9 #IntercomMessageViewContainer form textarea{overflow:auto;white-space:pre;word-wrap:break-word}#IModal div.powered_by_intercom{display:none}#INotificationMessagesWrapper .ic_call_in_progress_actions,#INotificationMessagesWrapper .ic_calling_actions{position:absolute;right:15px}@media print{#IModal,#IModalOverlay,#IntercomDefaultWidget,#IModal *,#INotificationMessagesWrapper{display:none !important}}#IModal.intercom #IntercomMessageView div.ic_message .ic_sticker,#IModal.intercom #IntercomMessageView ul.ic_comments .ic_sticker{text-align:center}#IModal.intercom #IntercomMessageView div.ic_message .ic_sticker img,#IModal.intercom #IntercomMessageView ul.ic_comments .ic_sticker img{width:128px;height:128px}#IModal.intercom #IntercomMessageView div.ic_message .ic_sticker span,#IModal.intercom #IntercomMessageView ul.ic_comments .ic_sticker span{position:absolute;top:-9999px;left:-9999px}
+@media screen and (max-width: 626px){#IModal,#IModal .ic_table_wrapper,#IModal .ic_pane,#IModal .ic_content,#IModal #IntercomMessageView,#IModal #IntercomNewMessageContainer .ic_form_wrapper{left:0 !important;top:0 !important;bottom:0 !important;right:0 !important;width:100%;height:100%;margin-left:0 !important;margin-top:0 !important;border-width:0 !important}#IModal .ic_table_wrapper,#IModal #IntercomMessageView,#IModal #IntercomNewMessageContainer .ic_form_wrapper{position:absolute;top:76px !important;height:auto;overflow:auto}#IModal .ic_table_wrapper table,#IModal .ic_table_wrapper table tbody,#IModal .ic_table_wrapper table tr,#IModal .ic_table_wrapper table th,#IModal .ic_table_wrapper table td{display:block}#IModal .ic_table_wrapper table tr{position:relative}#IModal #IntercomMessageListView .ic_table_wrapper table th.ic_user{border-bottom:0;position:absolute;left:0;top:0}#IModal #IntercomMessageListView table tr.ic_last_response_is_from_app_user th.ic_user a{padding-left:10px}#IModal #IntercomMessageListView .ic_table_wrapper table td.ic_time{position:absolute;top:0;right:0;width:50px;border-bottom:0}#IModal .ic_table_wrapper table td.ic_said{clear:both}#IModal #IntercomMessageListView table td.ic_said a{padding-left:10px;padding-right:10px;padding-top:50px}#IModal #IntercomNewMessageContainer form,#IModal #IntercomMessageViewContainer form{padding:9px 9px 51px}#IModal #IntercomNewMessageContainer form textarea,#IModal #IntercomMessageViewContainer form textarea{font-size:16px;margin-bottom:9px}#IModal .ic_content #IntercomNewMessageContainer form textarea{height:160px}#IModal #IntercomNewMessageContainer form button,#IModal #IntercomMessageViewContainer #IntercomMessageView form button{float:right}#IModal .ic_header h1{top:17px}#IModal .ic_header h1 strong{display:block}#INotificationMessagesWrapper{width:100%;top:0;right:0}}@media screen and (max-height: 444px){#IModal,#IModal .ic_table_wrapper,#IModal .ic_pane,#IModal .ic_content,#IModal #IntercomMessageView,#IModal #IntercomNewMessageContainer .ic_form_wrapper{left:0 !important;top:0 !important;bottom:0 !important;right:0 !important;width:100%;height:100%;margin-left:0 !important;margin-top:0 !important;border-width:0 !important}#IModal .ic_table_wrapper,#IModal #IntercomMessageView,#IModal #IntercomNewMessageContainer .ic_form_wrapper{position:absolute;top:76px !important;height:auto;overflow:auto}#IModal .ic_table_wrapper table,#IModal .ic_table_wrapper table tbody,#IModal .ic_table_wrapper table tr,#IModal .ic_table_wrapper table th,#IModal .ic_table_wrapper table td{display:block}#IModal .ic_table_wrapper table tr{position:relative}#IModal #IntercomMessageListView .ic_table_wrapper table th.ic_user{border-bottom:0;position:absolute;left:0;top:0}#IModal #IntercomMessageListView table tr.ic_last_response_is_from_app_user th.ic_user a{padding-left:10px}#IModal #IntercomMessageListView .ic_table_wrapper table td.ic_time{position:absolute;top:0;right:0;width:50px;border-bottom:0}#IModal .ic_table_wrapper table td.ic_said{clear:both}#IModal #IntercomMessageListView table td.ic_said a{padding-left:10px;padding-right:10px;padding-top:50px}#IModal #IntercomNewMessageContainer form,#IModal #IntercomMessageViewContainer form{padding:9px 9px 51px}#IModal #IntercomNewMessageContainer form textarea,#IModal #IntercomMessageViewContainer form textarea{font-size:16px;margin-bottom:9px}#IModal .ic_content #IntercomNewMessageContainer form textarea{height:160px}#IModal #IntercomNewMessageContainer form button,#IModal #IntercomMessageViewContainer #IntercomMessageView form button{float:right}#IModal .ic_header h1{top:17px}#IModal .ic_header h1 strong{display:block}}
+@media screen and (min-width: 627px) and (min-height: 445px) {
+#IModal{border:1px solid #8c8c8c;width:625px;height:443px;-webkit-border-radius:3px;border-radius:3px;-moz-background-clip:padding;-webkit-background-clip:padding-box;background-clip:padding-box;-webkit-box-shadow:0px 1px 4px 0px rgba(0,0,0,0.4);box-shadow:0px 1px 4px 0px rgba(0,0,0,0.4)}#IModal.ic_show_at_top{margin-top:0 !important;top:100px !important}#IModal .ic_header .ic_color_tab{width:625px;margin:-1px -1px}#IModal #IntercomMessageListView div.ic_table_wrapper{height:367px;overflow:auto}#IModal #IntercomMessageListView table th.ic_user{width:159px}#IModal #IntercomMessageListView table th.ic_user a{width:99px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}#IModal #IntercomMessageListView table th.ic_user a span{white-space:nowrap}#IModal #IntercomMessageListView table td.ic_time{width:50px}#IModal #IntercomMessageListView table td.ic_time a{width:40px}#IModal #IntercomMessageViewContainer .ic_messages_wrapper{height:276px;overflow:auto}#IModal #IntercomMessageViewContainer .ic_textarea_has_focus .ic_messages_wrapper{height:222px}#IModal.intercom #IntercomMessageViewContainer .ic_reply_sent .ic_messages_wrapper{border-bottom:0;-webkit-border-radius:0 0 3px 3px;border-radius:0 0 3px 3px;height:357px}#IModal #IntercomMessageViewContainer form{padding:8px 9px 9px;-webkit-border-radius:0 0 3px 3px;border-radius:0 0 3px 3px;-moz-background-clip:border;-webkit-background-clip:border-box;background-clip:border-box;position:relative}#IModal #IntercomMessageViewContainer form,#IModal #IntercomMessageViewContainer form textarea{height:62px}#IModal #IntercomMessageViewContainer .ic_textarea_has_focus form,#IModal #IntercomMessageViewContainer .ic_textarea_has_focus form textarea{height:116px}#IModal #IntercomMessageViewContainer .ic_reply_sent form{display:none}#IModal #IntercomNewMessageContainer form button,#IModal #IntercomMessageViewContainer form button{position:absolute;right:9px}#IModal #IntercomMessageViewContainer form button{bottom:10px}#IModal #IntercomNewMessageContainer form button{bottom:10px}#IModal #IntercomNewMessageContainer form textarea{height:349px}#IModal #IntercomNewMessageContainer{-webkit-border-radius:0 0 3px 3px;border-radius:0 0 3px 3px;-moz-background-clip:border;-webkit-background-clip:border-box;background-clip:border-box}#IModal #IntercomNewMessageContainer form{position:relative}#IModal.ic_ie8 .ic_header .ic_color_tab:after{left:1px;right:1px;top:1px}#IModal.ic_ie7 #IntercomNewMessageContainer form textarea{height:325px;width:537px;padding:10px 59px 10px 9px}#IModal.ic_ie7 #IntercomMessageViewContainer form textarea{height:40px;width:537px}#IModal.ic_ie7 #IntercomMessageListView table{width:608px}#IModal.ic_ie7 #IntercomMessageListView table th.ic_user a{width:139px;padding:10px;position:static;height:30px;line-height:30px}#IModal.ic_ie7 #IntercomMessageListView table th.ic_user a img{position:static;float:left;margin:0 10px 0 0}#IModal.ic_ie7 #IntercomMessageViewContainer .ic_messages_wrapper ul.ic_comments li div.ic_user,#IModal.ic_ie7 #IntercomMessageViewContainer .ic_messages_wrapper ul.ic_comments li blockquote.ic_comment_body{position:static}#IModal.ic_ie7 #IntercomMessageViewContainer .ic_messages_wrapper ul.ic_comments li div.ic_has_avatar{height:22px}#IModal.ic_ie7 #IntercomMessageViewContainer .ic_messages_wrapper ul.ic_comments li div.ic_has_avatar img{position:static;float:left;margin:0 5px 0 0}#IModal.ie10 #IntercomNewMessageContainer form textarea,#IModal.ie10 #IntercomMessageViewContainer form textarea{overflow:auto}#INotificationMessagesWrapper .ic_notification_message{-webkit-box-shadow:0px 1px 4px 0px rgba(0,0,0,0.4);box-shadow:0px 1px 4px 0px rgba(0,0,0,0.4)}
+
+}</style></head>
+
+  <body class="test_driven_rails_resources test_driven_rails_resources-index " style="">
+    <section id="header-wrapper" class="subscriber">
+  <div class="header-container">
+    <h1 class="small-logo">
+      <a href="https://learn.thoughtbot.com/">
+          <img alt="Learn ralph small" src="./thoughtbot Learn_files/learn-ralph-small-5713edd8a38c3b6dad81fffab649d07e.png">
+        <span>Learn</span>
+</a>    </h1>
+    <nav class="left">
+      <ul>
+          <li class="back"><a href="https://learn.thoughtbot.com/dashboard">← Dashboard</a></li>
+        
+      </ul>
+    </nav>
+    <nav>
+      <ul>
+          <li class="timeline"><a href="https://learn.thoughtbot.com/timeline">Timeline</a></li>
+          <li class="account"><a href="https://learn.thoughtbot.com/my_account">Settings</a></li>
+      </ul>
+    </nav>
+  </div>
+</section>
+
+
+
+    
+
+    <section class="content">
+        <h1 class="subject">Test Driven Rails</h1>
+      
+<div class="text-box-wrapper">
+  <div class="text-box">
+    <hgroup class="product-title">
+      <h2>Test Driven Rails Resources</h2>
+    </hgroup>
+
+    <h3 id="high-level-design">High-Level Design</h3>
+    <ul>
+      <li class="learn">
+        <a class="book" href="http://www.amazon.com/Clean-Code-Handbook-Software-Craftsmanship/dp/0132350882/?tag=giantrobotssm-20">
+          <span>Clean Code: A Handbook of Agile Software Craftsmanship</span>
+          <p>The quintessential book on good software practices.</p>
+        </a>
+      </li>
+
+      <li class="learn">
+        <a class="book" href="http://www.amazon.com/Design-Patterns-Elements-Reusable-Object-Oriented/dp/0201633612/?tag=giantrobotssm-20">
+          <span>Design Patterns: Elements of Reusable Object-Oriented Software</span>
+          <p>The quintessential book on design patterns and how to apply them.</p>
+        </a>
+      </li>
+
+      <li class="star">
+        <a class="book" href="http://www.amazon.com/RSpec-Book-Behaviour-Development-Cucumber/dp/1934356379/?tag=giantrobotssm-20">
+          <span>The RSpec Book</span>
+          <p>Written by David Chelimsky, lead developer of RSpec.</p>
+        </a>
+      </li>
+
+      <li>
+        <a class="book" href="http://www.amazon.com/Working-Effectively-Legacy-Michael-Feathers/dp/0131177052/?tag=giantrobotssm-20">
+          <span>Working Effectively with Legacy Code</span>
+          <p>The perfect book to read when adding tests to existing applications.</p>
+        </a>
+      </li>
+
+      <li>
+        <a href="http://www.elabs.se/blog/15-you-re-cuking-it-wrong">
+          <span>You're Cuking It Wrong</span>
+          <p>How <em>not</em> to write acceptance tests.</p>
+        </a>
+      </li>
+    </ul>
+
+    <h3 id="testing-concepts">Testing Concepts</h3>
+    <ul>
+      <li class="learn">
+        <a class="site" href="http://xunitpatterns.com/Four%20Phase%20Test.html">
+          <span>Four-Phase Test</span>
+          <p>Setup, Exercise, Verify, Teardown.</p>
+        </a>
+      </li>
+
+      <li class="learn">
+        <a class="site" href="http://www.jamesshore.com/Blog/Red-Green-Refactor.html">
+          <span>Red, Green, Refactor</span>
+          <p>Outlines steps to work towards working software in a quick manner.</p>
+        </a>
+      </li>
+
+      <li class="star">
+        <a class="site" href="http://dannorth.net/whats-in-a-story/">
+          <span>What's in a Story?</span>
+          <p>Discusses outside-in development through BDD.</p>
+        </a>
+      </li>
+
+      <li class="star">
+        <a class="site" href="http://xunitpatterns.com/Mocks,%20Fakes,%20Stubs%20and%20Dummies.html">
+          <span>Mocks, Fakes, Stubs, and Dummies</span>
+          <p>Breakdown of different types of test doubles and their purposes.</p>
+        </a>
+      </li>
+
+      <li class="star">
+        <a class="video" href="http://cleancoder.posterous.com/100-test-coverage">
+          <span>100% Test Coverage</span>
+          <p>"Uncle Bob" Martin discussing test coverage.</p>
+        </a>
+      </li>
+
+      <li class="star">
+        <a class="site" href="http://martinfowler.com/bliki/SelfInitializingFake.html">
+          <span>Self-Initializing Fake</span>
+          <p>A method of testing third-party services by recording real requests and replaying responses.</p>
+        </a>
+      </li>
+
+      <li>
+        <a class="site" href="http://martinfowler.com/articles/mocksArentStubs.html">
+          <span>Mocks Aren't Stubs</span>
+          <p>Mocks, stubs, and how they differ.</p>
+        </a>
+      </li>
+
+      <li>
+        <a class="site" href="http://tech.groups.yahoo.com/group/extremeprogramming/message/111829">
+          <span>Unit Test Rulz [sic]</span>
+          <p>Michael Feathers' list on what makes (or doesn't) a unit test.</p>
+        </a>
+      </li>
+
+      <li>
+        <a class="site" href="http://xunitpatterns.com/Obscure%20Test.html">
+          <span>xUnit Patterns: Obscure Test</span>
+          <p>List of various types of obscure tests (mystery guest, general fixture, eager test).</p>
+        </a>
+      </li>
+
+      <li>
+        <a class="site" href="http://martinfowler.com/articles/nonDeterminism.html#RemoteServices">
+          <span>Eradicating Non-Determinism in Tests: Remote Services</span>
+          <p>Outlines various ways in which a developer can test against a third-party service.</p>
+        </a>
+      </li>
+    </ul>
+
+    <h3 id="continuous-integration">Continuous Integration</h3>
+    <ul>
+      <li class="learn">
+        <a class="site" href="http://martinfowler.com/articles/continuousIntegration.html">
+          <span>Continuous Integration</span>
+          <p>Basic outline of continuous integration.</p>
+        </a>
+      </li>
+
+      <li class="star">
+        <a class="app" href="https://travis-ci.org/">
+          <span>Travis CI</span>
+          <p>Continuous integration for open-source software.</p>
+        </a>
+      </li>
+
+      <li>
+        <a class="app" href="https://www.tddium.com/">
+          <span>tddium by Solano Labs</span>
+          <p>Continuous integration in the cloud.</p>
+        </a>
+      </li>
+    </ul>
+
+    <h3 id="testing-tools">Testing Tools</h3>
+    <ul>
+      <li class="learn">
+        <a class="site" href="https://www.relishapp.com/rspec">
+          <span>RSpec</span>
+          <p>BDD for Ruby.</p>
+        </a>
+      </li>
+
+      <li class="learn">
+        <a class="site" href="https://github.com/jnicklas/capybara">
+          <span>Capybara</span>
+          <p>Acceptance testing framework for web applications.</p>
+        </a>
+      </li>
+
+      <li class="learn">
+        <a class="site" href="http://pivotal.github.com/jasmine/">
+          <span>Jasmine</span>
+          <p>BDD for JavaScript.</p>
+        </a>
+      </li>
+
+      <li>
+        <a class="site" href="https://github.com/bmabey/email-spec">
+          <span>Email Spec</span>
+          <p>Test email delivery more easily.</p>
+        </a>
+      </li>
+
+      <li>
+        <a class="site" href="http://rubydoc.info/gems/simplecov/frames">
+          <span>Simplecov</span>
+          <p>C0 code coverage for Ruby 1.9.</p>
+        </a>
+      </li>
+
+      <li>
+        <a class="site" href="https://github.com/thoughtbot/capybara-webkit">
+          <span>capybara-webkit</span>
+          <p>Capybara driver that uses QtWebKit for faster tests.</p>
+        </a>
+      </li>
+
+      <li>
+        <a class="site" href="https://github.com/travisjeffery/timecop">
+          <span>Timecop</span>
+          <p>A gem providing "time travel" and "time freezing" capabilities.</p>
+        </a>
+      </li>
+
+      <li>
+        <a class="site" href="https://github.com/thoughtbot/factory_girl">
+          <span>FactoryGirl</span>
+          <p>Build objects for your tests.</p>
+        </a>
+      </li>
+
+      <li>
+        <a class="site" href="https://github.com/thoughtbot/bourne">
+          <span>Bourne</span>
+          <p>Test spies with mocha.</p>
+        </a>
+      </li>
+
+      <li>
+        <a class="app" href="https://codeclimate.com/">
+          <span>Code Climate</span>
+          <p>Hosted static analysis for Ruby source code.</p>
+        </a>
+      </li>
+
+      <li>
+        <a class="site" href="https://github.com/cucumber/aruba">
+          <span>Aruba</span>
+          <p>Support for testing CLIs.</p>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<aside>
+  <a class="button" href="https://learn.thoughtbot.com/workshops/18-test-driven-rails">Take the workshop</a>
+  <div class="resource-links">
+    <h3>Resource Links</h3>
+    <hr>
+    <ul>
+      <li><a href="https://learn.thoughtbot.com/test-driven-rails-resources#high-level-design">High-Level Design</a></li>
+      <li><a href="https://learn.thoughtbot.com/test-driven-rails-resources#testing-concepts">Testing Concepts</a></li>
+      <li><a href="https://learn.thoughtbot.com/test-driven-rails-resources#continuous-integration">Continuous Integration</a></li>
+      <li><a href="https://learn.thoughtbot.com/test-driven-rails-resources#testing-tools">Testing Tools</a></li>
+    </ul>
+  </div>
+</aside>
+
+    </section>
+
+    
+
+    <footer>
+  <nav>
+    <section id="thoughtbot">
+      <ul>
+          <li><a data-method="delete" href="https://learn.thoughtbot.com/sign_out" rel="nofollow">Sign out</a></li>
+      </ul>
+      <ul>
+        <li><a href="http://thoughtbot.com/">About thoughtbot</a></li>
+        <li><a href="http://apprentice.io/">Apprentice.io</a></li>
+        <li><a href="http://thoughtbot.com/podcast">Podcast</a></li>
+        <li><a href="https://learn.thoughtbot.com/bytes">Prime Bytes</a></li>
+        <li><a href="https://learn.thoughtbot.com/privacy">Privacy Policy</a></li>
+        <li><a href="https://learn.thoughtbot.com/terms">Terms &amp; Conditions</a></li>
+      </ul>
+    </section>
+
+    <section id="trails">
+      <ul>
+        <li><a href="https://learn.thoughtbot.com/trails">Trail Maps</a></li>
+      </ul>
+      <ul>
+          <li><a href="https://learn.thoughtbot.com/ruby">Ruby</a></li>
+          <li><a href="https://learn.thoughtbot.com/rails">Ruby on Rails</a></li>
+          <li><a href="https://learn.thoughtbot.com/design">Design</a></li>
+          <li><a href="https://learn.thoughtbot.com/vim">Vim</a></li>
+          <li><a href="https://learn.thoughtbot.com/test-driven+development">Testing</a></li>
+          <li><a href="https://learn.thoughtbot.com/javascript">JavaScript</a></li>
+          <li><a href="https://learn.thoughtbot.com/ios">iOS</a></li>
+          <li><a href="https://learn.thoughtbot.com/web+design">Web Design</a></li>
+          <li><a href="https://learn.thoughtbot.com/git">Git</a></li>
+          <li><a href="https://learn.thoughtbot.com/sass">Sass</a></li>
+          <li><a href="https://learn.thoughtbot.com/heroku">Heroku</a></li>
+          <li><a href="https://learn.thoughtbot.com/html-css">HTML &amp; CSS</a></li>
+          <li><a href="https://learn.thoughtbot.com/refactoring">Refactoring</a></li>
+          <li><a href="https://learn.thoughtbot.com/unix">UNIX</a></li>
+          <li><a href="https://learn.thoughtbot.com/typography">Typography</a></li>
+          <li><a href="https://learn.thoughtbot.com/grids">CSS Grids</a></li>
+          <li><a href="https://learn.thoughtbot.com/tmux">tmux</a></li>
+          <li><a href="https://learn.thoughtbot.com/visual-principles">Visual Principles</a></li>
+          <li><a href="https://learn.thoughtbot.com/rubymotion">RubyMotion</a></li>
+          <li><a href="https://learn.thoughtbot.com/sql">SQL</a></li>
+      </ul>
+    </section>
+  </nav>
+
+  <p id="copyright">© 2012 - 2013 thoughtbot, inc. The <em>design of a robot</em> and <em>thoughtbot</em> are registered trademarks of thoughtbot,&nbsp;inc.</p>
+  
+</footer>
+
+
+
+
+    <script src="./thoughtbot Learn_files/application-e46580ddf18400c369a0069866daac42.js"></script>
+<script src="./thoughtbot Learn_files/prefilled_input-837afd0d082dde9cd02f9839a9a2d415.js"></script>
+
+<script>
+//<![CDATA[
+
+//]]>
+</script>
+      <script type="text/javascript">
+      var _kmq = _kmq || [];
+      (function(){function _kms(u,d){if(navigator.appName.indexOf("Microsoft")==0 && d)document.write("<scr"+"ipt defer='defer' async='true' src='"+u+"'></scr"+"ipt>");else{var s=document.createElement('script');s.type='text/javascript';s.async=true;s.src=u;(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(s);}}_kms('https://i.kissmetrics.com/i.js');_kms('http'+('https:'==document.location.protocol ? 's://s3.amazonaws.com/' : '://')+'scripts.kissmetrics.com/fb630646a8d2b4cb9b5fae63ba61cc7cd2d194fb.1.js',1);})();
+      
+      </script>
+
+
+
+
+
+  <script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-1485842-1']);
+  _gaq.push(['_setDomainName', 'thoughtbot.com']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+   var ga = document.createElement('script'); ga.type =
+   'text/javascript'; ga.async = true;
+   ga.src = ('https:' == document.location.protocol ? 'https://ssl' :
+     'http://www') + '.google-analytics.com/ga.js';
+   var s = document.getElementsByTagName('script')[0];
+   s.parentNode.insertBefore(ga, s);
+   })();
+ </script>
+
+  <script src="./thoughtbot Learn_files/3tbRq2.js" type="text/javascript"></script>
+
+  <script type="text/javascript">
+    (function() {
+     var st = document.createElement('script'); st.type = 'text/javascript'; st.async = true;
+     st.src = 'https://platform.readmill.com/send.js';
+     var p = document.getElementsByTagName('script')[0]; p.parentNode.insertBefore(st, p);
+     })();
+   </script>
+
+
+<script type="text/javascript">
+</script>
+
+  <script id="IntercomSettingsScriptTag">
+  window.intercomSettings = {"email":"addick@me.com","name":"Ad","created_at":1376098936,"user_id":2957,"user_hash":"09dd5af43d7b7a0c50aae7f142af6dec43efa7d8796691e3f254632881021ab3","plan":"Prime Workshops","has_logged_in_to_forum":false,"has_active_subscription":true,"subscribed_at":1383486477,"mentor_name":"Chris Toomey","app_id":"dbd6a8c6010791c57a0a54bc99b9bfca1d80eca4","widget":{"activator":"#IntercomDefaultWidget"}};
+</script>
+<script>(function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){ic('reattach_activator');ic('update',intercomSettings);}else{var d=document;var i=function(){i.c(arguments)};i.q=[];i.c=function(args){i.q.push(args)};w.Intercom=i;function l(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://static.intercomcdn.com/intercom.v1.js';var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);}if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}};})()</script>
+<script type="text/javascript">if (typeof NREUMQ !== "undefined") { if (!NREUMQ.f) { NREUMQ.f=function() {
+NREUMQ.push(["load",new Date().getTime()]);
+var e=document.createElement("script");
+e.type="text/javascript";
+e.src=(("http:"===document.location.protocol)?"http:":"https:") + "//" +
+  "js-agent.newrelic.com/nr-100.js";
+document.body.appendChild(e);
+if(NREUMQ.a)NREUMQ.a();
+};
+NREUMQ.a=window.onload;window.onload=NREUMQ.f;
+};
+NREUMQ.push(["nrfj","beacon-5.newrelic.com","c49e64a3ae","1639123","IQpZEBNeCA1SQ05GURERaAATWBIEWW4TU10OFmgWBEILFEVSBEEbCwtTARk=",210,110,new Date().getTime(),"","","","",""]);}</script>
+
+<textarea tabindex="-1" style="position: absolute; top: -999px; left: 0px; right: auto; bottom: auto; border: 0px; box-sizing: content-box; word-wrap: break-word; overflow: hidden; -webkit-transition: none; transition: none; height: 0px !important; min-height: 0px !important;"></textarea><script type="text/javascript" src="./thoughtbot Learn_files/nr-100.js"></script><script type="text/javascript" src="./thoughtbot Learn_files/c49e64a3ae"></script><div id="window-resizer-tooltip" style="display: block; opacity: 0.3110796065907665;"><a href="https://learn.thoughtbot.com/test-driven-rails-resources#" title="Edit settings" style="background-image: url(chrome-extension://kkelicaakdanhinjdeammmilcgefonfh/images/icon_19.png);"></a><span class="tooltipTitle">Window size: </span><span class="tooltipWidth" id="winWidth">1366</span> x <span class="tooltipHeight" id="winHeight">744</span><br><span class="tooltipTitle">Viewport size: </span><span class="tooltipWidth" id="vpWidth">1366</span> x <span class="tooltipHeight" id="vpHeight">609</span></div><div id="IntercomDefaultWidget" data-intercom_original_html="&lt;span&gt;Support&lt;/span&gt;" style="visibility: visible;"><span>Support</span></div><div id="INotificationMessagesWrapper"></div><div id="IntercomBindingPoint"></div><div id="IModalOverlay"></div><div id="IModal"><div class="ic_content"></div></div></body></html>

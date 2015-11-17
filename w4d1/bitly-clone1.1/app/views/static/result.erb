@@ -1,0 +1,17 @@
+<div>
+<h1>SHORTEN URL:</h1>
+<table class='table table-hover table-striped'>
+	<tr>
+		<th>Url</th>
+		<th>Shorten Url</th>
+		<th>No of Click</th>
+	</tr>
+	<tr>
+		<td><%@urls.each do |url|%></td>
+		<td><%="#{url.long_url}"%></td>
+		<td><a href="<%=url.short_url%>"</a><%="#{url.short_url}"%></td>
+		<td><%="#{url.click_count}"%></td>
+	</tr>
+	<%end%> 
+</table>
+</div>
