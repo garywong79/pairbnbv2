@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151117072829) do
+ActiveRecord::Schema.define(version: 20151119012909) do
 
   create_table "lists", force: :cascade do |t|
     t.string   "price"
@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 20151117072829) do
     t.integer  "user_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+    t.text     "images"
   end
 
   create_table "users", force: :cascade do |t|
@@ -37,6 +38,7 @@ ActiveRecord::Schema.define(version: 20151117072829) do
     t.string   "image"
     t.string   "oauth_token"
     t.datetime "oauth_expires_at"
+    t.string   "avatar"
   end
 
 end

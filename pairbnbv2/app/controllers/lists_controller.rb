@@ -1,11 +1,13 @@
 class ListsController < ApplicationController
 
 	def new
+
 	end
 
 	def create
 		@user = current_user
 		@list = @user.lists.new(list_params)
+		byebug
 		if @list.save
 			redirect_to root_path
 		else
@@ -26,7 +28,6 @@ class ListsController < ApplicationController
   end
 
   def destroy
-  	byebug
   	@list = List.find(params[:id])
     @list.destroy
     redirect_to root_path
@@ -34,6 +35,6 @@ class ListsController < ApplicationController
 
 	private
 	def list_params
-		params.require(:list).permit(:price, :description, :bathroom, :bedroom, :bed, :property_type, :room_type)
+		params.require(:list).permit(:price, :description, :bathroom, :bedroom, :bed, :property_type, :room_type, {images: []})
 	end
 end

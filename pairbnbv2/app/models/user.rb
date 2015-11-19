@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  # attr_accessible :avatar_cache
 	validates :name, presence: true
 	validates :password_digest, presence:true
 	validates :email, presence: true, uniqueness: true, format: {with: /\A[^@\s]+@([^@\s]+\.)+[^@\W]+\z/ }
@@ -7,7 +8,7 @@ class User < ActiveRecord::Base
 	before_save :downcase_email
 
   has_many :lists
-
+  mount_uploader :avatar, AvatarUploader
 	has_secure_password
 	
 	
